@@ -1,57 +1,81 @@
 <template>
-  <nav id="nav" class="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-light">
-    <img src="../../public/Centro-Picasso-120x55.png" alt="logo" />
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/">Inicio</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/about">Sobre el centro</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/courses">Cursos<i class="fas fa-angle-down p-1"></i></router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/prices">Precios</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/blog">Blog</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/contacts">Contactos</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/inscribirse">Inscribirse</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link m-2" to="/login">Login</router-link>
-        </li>
-      </ul>
+  <nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light">
+    <div class="header_top offcanvas-body">
+      <div class="align-items-md-center offcanvas-body mr-5">
+        <img
+          class="header_big-image align-self-md-start ml-2 mr-5"
+          src="../../public/Centro-Picasso-200x91.png"
+          alt="logo"
+        />
+        <p class="header_text-school align-self-md-center">ESCUELA DE LENGUA ESPAÑOLA</p>
+      </div>
+      <div class="align-items-md-center d-flex mb-3 ml-5">
+        <div class="mr-3"><i class="fas fa-map-marker mr-2"></i><span>Zagorodnyi prosp., 5</span></div>
+        <div><i class="fas fa-phone-alt mr-2"></i><span>+7 (911) 844 26 28</span></div>
+      </div>
+    </div>
+    <div class="header_rule"></div>
+    <div class="header_bottom">
+      <img class="header_small-image" src="../../public/Centro-Picasso-120x55.png" alt="logo" />
+      <button
+        class="header_toggle-button navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="header_navbar-collapse align-self-md-end collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/">Inicio</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/about">Sobre el centro</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/courses">Cursos<i class="fas fa-angle-down p-1"></i></router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/prices">Precios</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/blog">Blog</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/contacts">Contactos</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/inscribirse">Inscribirse</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link m-2" to="/login">Login</router-link>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  min-width: 400px;
+}
+
+.header_text-school {
+  color: #cc1810;
 }
 
 #nav {
+  max-height: 180px;
   a {
     font-weight: bold;
     color: black;
@@ -59,6 +83,35 @@
     &.router-link-exact-active {
       color: #cc1810;
     }
+  }
+}
+.header_rule {
+  width: 100vw;
+  height: 0.1rem;
+  top: 0;
+  bottom: auto;
+  background-color: rgba(179, 181, 182, 0.32);
+}
+.header_bottom {
+  height: 80px;
+  .header_small-image {
+    margin-right: 10rem;
+  }
+  .header_toggle-button {
+    margin-left: 10rem;
+  }
+  @media screen and (min-width: 992px) {
+    .header_small-image {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .header_top {
+    display: none;
+  }
+  .header_rule {
+    display: none;
   }
 }
 </style>
