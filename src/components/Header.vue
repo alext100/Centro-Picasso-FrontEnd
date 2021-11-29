@@ -1,8 +1,5 @@
 <template>
-  <nav
-    id="nav"
-    class="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-light"
-  >
+  <nav id="nav" class="d-flex justify-content-between navbar navbar-expand-lg navbar-light bg-light">
     <img src="../../public/Centro-Picasso-120x55.png" alt="logo" />
     <button
       class="navbar-toggler"
@@ -24,24 +21,22 @@
           <router-link class="nav-link m-2" to="/about">Sobre el centro</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link m-2" to="/"
-            >Cursos<i class="fas fa-angle-down p-1"></i
-          ></router-link>
+          <router-link class="nav-link m-2" to="/courses">Cursos<i class="fas fa-angle-down p-1"></i></router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link m-2" to="/">Precios</router-link>
+          <router-link class="nav-link m-2" to="/prices">Precios</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link m-2" to="/">Blog</router-link>
+          <router-link class="nav-link m-2" to="/blog">Blog</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link m-2" to="/">Contactos</router-link>
+          <router-link class="nav-link m-2" to="/contacts">Contactos</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link m-2" to="/">Inscribirse</router-link>
+          <router-link class="nav-link m-2" to="/inscribirse">Inscribirse</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link m-2" to="/">Login</router-link>
+          <router-link class="nav-link m-2" to="/login">Login</router-link>
         </li>
       </ul>
     </div>
