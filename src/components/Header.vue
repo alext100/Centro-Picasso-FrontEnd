@@ -7,7 +7,7 @@
           src="../../public/Centro-Picasso-200x91.png"
           alt="logo"
         />
-        <p class="header_text-school align-self-md-center">ESCUELA DE LENGUA ESPAÑOLA</p>
+        <p class="header_text-school align-self-md-center">ESCUELA DE LA LENGUA ESPAÑOLA</p>
       </div>
       <div class="align-items-md-center d-flex mb-3 ml-5">
         <div class="mr-3"><i class="fas fa-map-marker mr-2"></i><span>Zagorodnyi prosp., 5</span></div>
