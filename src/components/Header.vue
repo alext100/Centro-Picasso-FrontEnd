@@ -52,13 +52,24 @@
             <router-link class="nav-link m-2" to="/inscribirse">Inscribirse</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link m-2" to="/login">Login</router-link>
+            <router-link class="nav-link m-2" to="/login">{{ currentUser ? "Logout" : "Login" }}</router-link>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapState } from "vuex";
+
+export default defineComponent({
+  name: "Header",
+  props: {},
+  computed: { ...mapState(["currentUser"]) },
+});
+</script>
 
 <style lang="scss">
 * {
