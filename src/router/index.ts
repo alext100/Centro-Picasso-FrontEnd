@@ -43,6 +43,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "Login",
     component: Login,
   },
+  {
+    path: "/admin",
+    name: "Admin",
+    component: () => import("../views/BoardAdmin.vue"),
+  },
 ];
 
 const router = createRouter({
