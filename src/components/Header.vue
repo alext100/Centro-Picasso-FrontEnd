@@ -2,11 +2,7 @@
   <nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light">
     <div class="header_top offcanvas-body">
       <div class="align-items-md-center offcanvas-body mr-5">
-        <img
-          class="header_big-image align-self-md-start ml-2 mr-5"
-          src="../../public/Centro-Picasso-200x91.png"
-          alt="logo"
-        />
+        <img class="header_big-image align-self-md-start ml-2 mr-5" src="../../public/Centro-Picasso-200x91.png" alt="logo" />
         <p class="header_text-school align-self-md-center">ESCUELA DE LA LENGUA ESPAÑOLA</p>
       </div>
       <div class="align-items-md-center d-flex mb-3 ml-5">
@@ -51,10 +47,17 @@
           <li class="nav-item">
             <router-link class="nav-link m-2" to="/inscribirse">Inscribirse</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link m-2" to="/login">{{ currentUser ? "Logout" : "Login" }}</router-link>
+          <li v-if="!isUserAuthenticated" class="nav-item">
+            <router-link class="nav-link m-2" to="/login">{{ "Login" }}</router-link>
+          </li>
+          <li v-if="isUserAuthenticated" class="nav-item">
+            <router-link class="nav-link m-2" to="/"
+              ><button class="logout-button" @click="handleLogout()">Logout</button></router-link
+            >
           </li>
         </ul>
+
+        <!--  <button v-if="isUserAuthenticated" @click="handleLogout()">Logout-if</button> -->
       </div>
     </div>
   </nav>
@@ -62,12 +65,20 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default defineComponent({
   name: "Header",
   props: {},
-  computed: { ...mapState(["currentUser"]) },
+  computed: { ...mapState(["currentUser", "isUserAuthenticated"]) },
+  methods: {
+    ...mapActions(["getUserFromLocalStorage", "deleteDataFromLocalStorage"]),
+
+    handleLogout() {
+      this.deleteDataFromLocalStorage();
+      this.$router.push("/");
+    },
+  },
 });
 </script>
 
@@ -95,6 +106,14 @@ export default defineComponent({
       color: #cc1810;
     }
   }
+}
+.logout-button {
+  color: black;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  font-weight: bold;
+  background-color: transparent;
+  border: transparent;
 }
 .header_rule {
   width: 100vw;

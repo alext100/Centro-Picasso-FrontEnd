@@ -18,10 +18,7 @@ const actions: any = {
     dispatch("login", localStorageUser.token);
   },
 
-  async userLogedFromApi(
-    { commit }: ActionContext<State, State>,
-    { user, token, refreshToken }: UserWithToken
-  ): Promise<void> {
+  async userLogedFromApi({ commit }: ActionContext<State, State>, { user, token, refreshToken }: UserWithToken): Promise<void> {
     const { data } = await axios({
       method: "GET",
       url: `${process.env.VUE_APP_URL}/user/get-one-by-id/${user.id}`,
@@ -42,14 +39,24 @@ const actions: any = {
         refreshToken: data.refreshToken,
         groups: data.groups,
         studentErrors: data.studentErrors,
+        adminAccess: data.adminAccess,
+        professorAccess: data.professorAccess,
+        studentAccess: data.studentAccess,
       })
     );
     commit("loginUser", data);
     commit("loadUser", data);
+    if (data.adminAccess === true) {
+      commit("userIsAdmin");
+    }
+    /*     if (data.professorAccess) {
+    }
+    if (data.studentAccess) {
+    } */
   },
 
   async deleteDataFromLocalStorage({ commit }: ActionContext<State, State>): Promise<void> {
-    localStorage.setItem("userData", JSON.stringify(""));
+    localStorage.removeItem("userData");
     const logedOutUser = { token: "", refreshToken: "" };
     commit("logoutUser", logedOutUser);
   },

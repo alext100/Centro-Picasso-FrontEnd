@@ -17,6 +17,9 @@ const mutations = {
     state.currentUser.token = payload.token;
     state.currentUser.refreshToken = payload.refreshToken;
   },
+  userIsAdmin(state: State) {
+    state.isAdmin = true;
+  },
 };
 
 export default mutations;
