@@ -99,7 +99,6 @@ export default defineComponent({
       } else {
         this.isDisabled = true;
       }
-      return this.isDisabled;
     },
     async handleLogin() {
       if (this.username !== "" && this.password !== "") {
