@@ -13,5 +13,3 @@ app.use(BootstrapVue3);
 app.use(store);
 app.use(router);
 app.mount("#app");
-
-/* createApp(App).use(store).use(router).mount("#app"); */
