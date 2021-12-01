@@ -24,6 +24,7 @@ const state = {
   currentUser: localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData") || "") : "",
   // eslint-disable-next-line no-unneeded-ternary
   isUserAuthenticated: localStorage.getItem("userData") ? true : false,
+  teachers: [],
 };
 
 export default state as unknown as State;

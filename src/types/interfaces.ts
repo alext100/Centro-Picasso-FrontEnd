@@ -38,6 +38,7 @@ interface State {
   currentUser: UserWithToken;
   isUserAuthenticated: boolean;
   isAdmin: boolean;
+  teachers: Array<UserModel>;
 }
 interface UserLoginData {
   username: string;

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { State } from "@/types/interfaces";
+import { State, UserModel } from "@/types/interfaces";
 
 const mutations = {
   loginUser(state: State, payload: any) {
@@ -19,6 +19,9 @@ const mutations = {
   },
   userIsAdmin(state: State) {
     state.isAdmin = true;
+  },
+  loadTeachers(state: State, payload: Array<UserModel>) {
+    state.teachers = payload;
   },
 };
 
