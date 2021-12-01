@@ -1,7 +1,7 @@
 <template>
   <div class="container-sm login-form d-flex flex-column mt-5">
     <b-card class="mb-1">
-      <b-form @change="checkForm" autoComplete="off" action @submit.prevent="handleLogin">
+      <b-form @change="checkForm" autoComplete="off" action v-on:keydown.enter.prevent="handleLogin" data-test="loginBForm">
         <div>
           <b-form-group
             id="username"
