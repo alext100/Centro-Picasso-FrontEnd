@@ -60,5 +60,10 @@ const actions: any = {
     const logedOutUser = { token: "", refreshToken: "" };
     commit("logoutUser", logedOutUser);
   },
+
+  async getTeachersFromApi({ commit }: ActionContext<State, State>) {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-all-teachers`);
+    commit("loadTeachers", data);
+  },
 };
 export default actions;
