@@ -36,10 +36,12 @@ const actions: any = {
         username: data.username,
         email: data.email,
         password: data.password,
-        firstName: data.firstName,
-        lastName: data.lastName,
+        firstName: data.firstname,
+        lastName: data.lastname,
         token: data.token,
         refreshToken: data.refreshToken,
+        groups: data.groups,
+        studentErrors: data.studentErrors,
       })
     );
     commit("loginUser", data);
