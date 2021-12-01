@@ -15,7 +15,10 @@ const actions: any = {
 
   getUserFromLocalStorage({ dispatch }: ActionContext<State, State>) {
     const localStorageUser = JSON.parse(localStorage.getItem("userData") || "");
-    dispatch("login", localStorageUser.token);
+    dispatch("login", {
+      username: localStorageUser.username,
+      password: localStorageUser.password,
+    });
   },
 
   async userLogedFromApi({ commit }: ActionContext<State, State>, { user, token, refreshToken }: UserWithToken): Promise<void> {

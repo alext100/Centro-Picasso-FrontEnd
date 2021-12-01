@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { State, UserModel } from "@/types/interfaces";
+import { State, UserModel, UserWithToken } from "@/types/interfaces";
 
 const mutations = {
-  loginUser(state: State, payload: any) {
+  loginUser(state: State, payload: UserWithToken) {
     state.isUserAuthenticated = true;
-    state.currentUser.token = payload.token;
+    state.currentUser = payload;
     state.currentUser.refreshToken = payload.refreshToken;
   },
 
-  loadUser(state: State, payload: any) {
+  loadUser(state: State, payload: UserWithToken) {
     state.currentUser = payload;
   },
 
-  logoutUser(state: State, payload: any) {
+  logoutUser(state: State, payload: UserWithToken) {
     state.isUserAuthenticated = false;
     state.currentUser.token = payload.token;
     state.currentUser.refreshToken = payload.refreshToken;

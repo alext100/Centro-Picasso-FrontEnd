@@ -26,7 +26,7 @@ interface UserWithToken {
     studentErrors: Array<string>;
   };
   id: string;
-  token: [];
+  token: string;
   refreshToken: string;
 }
 interface State {
