@@ -15,7 +15,7 @@ const state = {
     studentErrors: [],
   },
   userId: "",
-  token: {},
+  token: "",
   refreshToken: "",
   isLoggedIn: false,
   isAdmin: false,
