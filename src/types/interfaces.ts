@@ -37,6 +37,7 @@ interface State {
   isLoggedIn: boolean;
   currentUser: UserWithToken;
   isUserAuthenticated: boolean;
+  isAdmin: boolean;
 }
 interface UserLoginData {
   username: string;
