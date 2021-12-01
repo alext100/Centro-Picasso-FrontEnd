@@ -51,7 +51,7 @@
       @click="handleLogin"
       type="submit"
       pill
-      >Ingresar</b-button
+      >{{ isWrong ? "Incorrecto" : "Ingresar" }}</b-button
     >
   </div>
 </template>
@@ -88,6 +88,7 @@ export default defineComponent({
     return {
       userData: { username: null, password: null },
       isDisabled: true,
+      isWrong: false,
     };
   },
   name: "Login",
@@ -106,7 +107,13 @@ export default defineComponent({
           username: this.username,
           password: this.password,
         };
-        await this.login(userData);
+        try {
+          await this.login(userData);
+          this.isWrong = false;
+          this.$router.push("/admin");
+        } catch (error) {
+          this.isWrong = true;
+        }
       }
     },
   },
