@@ -68,5 +68,10 @@ const actions: any = {
     const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-all-teachers`);
     commit("loadTeachers", data);
   },
+
+  async getPricesFromApi({ commit }: ActionContext<State, State>): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/prices/get-all`);
+    commit("loadPrices", data);
+  },
 };
 export default actions;
