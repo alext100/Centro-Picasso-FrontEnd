@@ -31,6 +31,21 @@ interface UserWithToken {
   token: string;
   refreshToken: string;
 }
+
+// eslint-disable-next-line no-shadow
+enum CourseLevel {
+  A1,
+  A2,
+  B1,
+  B2,
+  C1,
+}
+interface Prices {
+  price: number;
+  level: CourseLevel;
+  duration: string;
+  id: string;
+}
 interface State {
   user: UserModel;
   userId: string;
@@ -41,6 +56,7 @@ interface State {
   isUserAuthenticated: boolean;
   isAdmin: boolean;
   teachers: Array<UserModel>;
+  prices: Array<Prices>;
 }
 interface UserLoginData {
   username: string;
@@ -54,4 +70,5 @@ interface UserRegisterData {
   firstname: string;
   lastname: string;
 }
-export { UserModel, State, UserWithToken, UserLoginData, UserRegisterData };
+
+export { UserModel, State, UserWithToken, UserLoginData, UserRegisterData, Prices };

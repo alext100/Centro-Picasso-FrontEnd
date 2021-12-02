@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { State, UserModel, UserWithToken } from "@/types/interfaces";
+import { Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
 
 const mutations = {
   loginUser(state: State, payload: UserWithToken) {
@@ -17,11 +17,17 @@ const mutations = {
     state.currentUser.token = payload.token;
     state.currentUser.refreshToken = payload.refreshToken;
   },
+
   userIsAdmin(state: State) {
     state.isAdmin = true;
   },
+
   loadTeachers(state: State, payload: Array<UserModel>) {
     state.teachers = payload;
+  },
+
+  loadPrices(state: State, payload: Array<Prices>) {
+    state.prices = payload;
   },
 };
 
