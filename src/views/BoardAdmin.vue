@@ -12,6 +12,19 @@
         <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" />
       </li>
     </ul>
+    <h2>Precios</h2>
+    <PricesTable
+      :a1-price="prices[0].price"
+      :a1-duration="prices[0].duration"
+      :a2-price="prices[1].price"
+      :a2-duration="prices[1].duration"
+      :b1-price="prices[2].price"
+      :b1-duration="prices[2].duration"
+      :b2-price="prices[3].price"
+      :b2-duration="prices[3].duration"
+      :c1-price="prices[4].price"
+      :c1-duration="prices[4].duration"
+    />
   </div>
 </template>
 
@@ -19,19 +32,21 @@
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import TeacherCard from "@/components/TeacherCard.vue";
+import PricesTable from "@/components/PricesTable.vue";
 
 export default defineComponent({
   name: "Admin",
-  components: { TeacherCard },
+  components: { TeacherCard, PricesTable },
 
   computed: {
-    ...mapState(["teachers", "currentUser"]),
+    ...mapState(["teachers", "currentUser", "prices"]),
   },
   methods: {
-    ...mapActions(["getTeachersFromApi"]),
+    ...mapActions(["getTeachersFromApi", "getPricesFromApi"]),
   },
   mounted() {
     this.getTeachersFromApi();
+    this.getPricesFromApi();
   },
   data() {
     return {
