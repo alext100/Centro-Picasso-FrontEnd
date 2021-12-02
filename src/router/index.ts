@@ -49,7 +49,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/admin",
     name: "Admin",
     component: BoardAdmin,
-    beforeEnter: protectedRoute,
+    /* beforeEnter: protectedRoute, */
   },
 ];
 
