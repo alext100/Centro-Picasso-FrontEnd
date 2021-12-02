@@ -73,5 +73,13 @@ const actions: any = {
     const { data } = await axios.get(`${process.env.VUE_APP_URL}/prices/get-all`);
     commit("loadPrices", data);
   },
+
+  async updatePriceInDB(
+    { commit }: ActionContext<State, State>,
+    { price, priceId }: { price: number; priceId: string }
+  ): Promise<void> {
+    const { data } = await axios.put(`${process.env.VUE_APP_URL}/prices/update/${priceId}`, price);
+    commit("updatedPrice", data);
+  },
 };
 export default actions;
