@@ -6,8 +6,8 @@
         <p class="header_text-school align-self-md-center">ESCUELA DE LA LENGUA ESPAÑOLA</p>
       </div>
       <div class="align-items-md-center d-flex mb-3 ml-5">
-        <div class="mr-3"><i class="fas fa-map-marker mr-2"></i><span>Zagorodnyi prosp., 5</span></div>
-        <div><i class="fas fa-phone-alt mr-2"></i><span>+7 (911) 844 26 28</span></div>
+        <div class="mr-3"><em class="fas fa-map-marker mr-2"></em><span>Zagorodnyi prosp., 5</span></div>
+        <div><em class="fas fa-phone-alt mr-2"></em><span>+7 (911) 844 26 28</span></div>
       </div>
     </div>
     <div class="header_rule"></div>
@@ -33,7 +33,7 @@
             <router-link class="nav-link m-2" to="/about">Sobre el centro</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link m-2" to="/courses">Cursos<i class="fas fa-angle-down p-1"></i></router-link>
+            <router-link class="nav-link m-2" to="/courses">Cursos<em class="fas fa-angle-down p-1"></em></router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link m-2" to="/prices">Precios</router-link>
@@ -56,8 +56,6 @@
             >
           </li>
         </ul>
-
-        <!--  <button v-if="isUserAuthenticated" @click="handleLogout()">Logout-if</button> -->
       </div>
     </div>
   </nav>
