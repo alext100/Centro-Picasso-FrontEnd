@@ -7,7 +7,7 @@ import Courses from "../views/Courses.vue";
 import Prices from "../views/Prices.vue";
 import Login from "../views/Login.vue";
 import BoardAdmin from "../views/BoardAdmin.vue";
-import protectedRoute from "./protectedRoute";
+/* import protectedRoute from "./protectedRoute"; */
 
 const routes: Array<RouteRecordRaw> = [
   {
