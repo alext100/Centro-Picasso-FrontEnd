@@ -8,22 +8,22 @@
     </p>
     <h2>Profesores</h2>
     <ul class="list-group-item-success">
-      <li v-for="teacher in teachers" :key="teacher" class="container__list">
+      <li v-for="teacher in teachers || []" :key="teacher" class="container__list">
         <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" />
       </li>
     </ul>
     <h2>Precios</h2>
-    <PricesTable
-      :a1-price="prices[0].price"
-      :a1-duration="prices[0].duration"
-      :a2-price="prices[1].price"
-      :a2-duration="prices[1].duration"
-      :b1-price="prices[2].price"
-      :b1-duration="prices[2].duration"
-      :b2-price="prices[3].price"
-      :b2-duration="prices[3].duration"
-      :c1-price="prices[4].price"
-      :c1-duration="prices[4].duration"
+    <prices-table
+      :a1-price="prices[0]?.price"
+      :a1-duration="prices[0]?.duration"
+      :a2-price="prices[1]?.price"
+      :a2-duration="prices[1]?.duration"
+      :b1-price="prices[2]?.price"
+      :b1-duration="prices[2]?.duration"
+      :b2-price="prices[3]?.price"
+      :b2-duration="prices[3]?.duration"
+      :c1-price="prices[4]?.price"
+      :c1-duration="prices[4]?.duration"
     />
   </div>
 </template>
