@@ -29,6 +29,10 @@ const mutations = {
   loadPrices(state: State, payload: Array<Prices>) {
     state.prices = payload;
   },
+
+  updatedPrice(state: State, payload: Array<Prices>) {
+    state.prices = payload;
+  },
 };
 
 export default mutations;

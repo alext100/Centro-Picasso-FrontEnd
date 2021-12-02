@@ -85,6 +85,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapActions, mapState } from "vuex";
 
 export default defineComponent({
   name: "PricesTable",
@@ -108,6 +109,16 @@ export default defineComponent({
       isHiddenB2Price: true,
       isHiddenC1Price: true,
     };
+  },
+
+  computed: {
+    ...mapState(["prices"]),
+  },
+  methods: {
+    ...mapActions(["updatePriceInDB"]),
+  },
+  mounted() {
+    this.updatePriceInDB();
   },
 });
 </script>
