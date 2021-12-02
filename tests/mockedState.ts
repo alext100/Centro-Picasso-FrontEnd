@@ -11,6 +11,7 @@ const mockedState = {
     studentAccess: false,
     groups: [],
     studentErrors: [],
+    image: "",
   },
   userId: "",
   token: "",

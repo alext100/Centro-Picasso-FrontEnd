@@ -23,6 +23,7 @@ describe("Given a store mutations", () => {
           studentAccess: false,
           groups: [],
           studentErrors: [],
+          image: "",
         },
         id: "22",
       };
@@ -83,6 +84,7 @@ describe("Given a store mutations", () => {
             groups: [],
             studentErrors: [],
             id: "61a7c85e0f7c5abd5aea3238",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
           },
           {
             username: "maria",
@@ -96,6 +98,7 @@ describe("Given a store mutations", () => {
             groups: [],
             studentErrors: [],
             id: "61a7c88f0f7c5abd5aea323a",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
           },
           {
             username: "manuel",
@@ -109,6 +112,7 @@ describe("Given a store mutations", () => {
             groups: [],
             studentErrors: [],
             id: "61a7c8aa0f7c5abd5aea323c",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
           },
         ];
 

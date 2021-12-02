@@ -10,6 +10,7 @@ interface UserModel {
   studentAccess: boolean;
   groups: Array<string>;
   studentErrors: Array<string>;
+  image: string;
 }
 interface UserWithToken {
   user: {
@@ -24,6 +25,7 @@ interface UserWithToken {
     studentAccess: boolean;
     groups: Array<string>;
     studentErrors: Array<string>;
+    image: string;
   };
   id: string;
   token: string;
