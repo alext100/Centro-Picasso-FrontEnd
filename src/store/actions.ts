@@ -83,5 +83,10 @@ const actions: any = {
     const { data: newPrices } = await axios.get(`${process.env.VUE_APP_URL}/prices/get-all`);
     commit("updatedPrice", newPrices);
   },
+
+  async registerUser({ dispatch }: ActionContext<State, State>, userData: UserLoginData): Promise<void> {
+    await axios.post(`${process.env.VUE_APP_URL}/user/register`, userData);
+    dispatch("getTeachersFromApi");
+  },
 };
 export default actions;
