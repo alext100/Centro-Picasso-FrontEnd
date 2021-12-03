@@ -76,10 +76,12 @@ const actions: any = {
 
   async updatePriceInDB(
     { commit }: ActionContext<State, State>,
-    { price, priceId }: { price: number; priceId: string }
+    { newPrice, priceId, priceObject }: { newPrice: number; priceId: string; priceObject: Array<string | number> }
   ): Promise<void> {
-    const { data } = await axios.put(`${process.env.VUE_APP_URL}/prices/update/${priceId}`, price);
-    commit("updatedPrice", data);
+    const newPriseObject = { ...priceObject, price: newPrice }; //
+    await axios.put(`${process.env.VUE_APP_URL}/prices/update/${priceId}`, newPriseObject);
+    const { data: newPrices } = await axios.get(`${process.env.VUE_APP_URL}/prices/get-all`);
+    commit("updatedPrice", newPrices);
   },
 };
 export default actions;
