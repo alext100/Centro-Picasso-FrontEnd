@@ -1,4 +1,4 @@
-import { State, UserModel, UserWithToken } from "@/types/interfaces";
+import { Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
 import mutations from "@/store/mutations";
 import state from "../mockedState";
 
@@ -45,7 +45,7 @@ describe("Given a store mutations", () => {
     });
 
     describe("When it receives a state and payload with token and refreshToken = ''", () => {
-      test("Then isUserAuthenticated should be false in store", () => {
+      test("Then isUserAuthenticated should be false in the store", () => {
         mockedState = state;
         const payload: any = {
           token: "",
@@ -59,7 +59,7 @@ describe("Given a store mutations", () => {
     });
 
     describe("When it receives a state", () => {
-      test("Then isAdmin should be true in store", () => {
+      test("Then isAdmin should be true in the store", () => {
         mockedState = state;
 
         mutations.userIsAdmin(mockedState);
@@ -69,7 +69,7 @@ describe("Given a store mutations", () => {
     });
 
     describe("When it receives a state and payload with array of teachers", () => {
-      test("Then teachers should be in store", () => {
+      test("Then teachers should be in the store", () => {
         mockedState = state;
         const payload: Array<UserModel> = [
           {
@@ -119,6 +119,36 @@ describe("Given a store mutations", () => {
         mutations.loadTeachers(mockedState, payload);
 
         expect(state.teachers).toStrictEqual(payload);
+      });
+    });
+
+    describe("When it receives a state and payload with array of prices", () => {
+      test("Then prices should be in the store", () => {
+        mockedState = state;
+        const payload: Array<Prices> = [
+          {
+            price: 4445,
+            level: "A1",
+            duration: "4 mes",
+            id: "61a0c0dfe27603f8593b180b",
+          },
+          {
+            price: 5001,
+            level: "A2",
+            duration: "4 mes",
+            id: "61a0c396da7e9712a4996e29",
+          },
+          {
+            price: 5006,
+            level: "B1",
+            duration: "4 mes",
+            id: "61a8e38aa00fdc2c04499365",
+          },
+        ];
+
+        mutations.loadPrices(mockedState, payload);
+
+        expect(state.prices).toStrictEqual(payload);
       });
     });
   });
