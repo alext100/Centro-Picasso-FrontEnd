@@ -89,4 +89,14 @@ describe("Given an actions from store", () => {
       expect(commit).toHaveBeenCalledWith("updatedPrice", data);
     });
   });
+
+  describe("When the action deleteDataFromLocalStorage is invoked", () => {
+    test("Then it should invoke commit with logoutUser", async () => {
+      const logedOutUser = { token: "", refreshToken: "" };
+
+      await actions.deleteDataFromLocalStorage(configActionContext(commit));
+
+      expect(commit).toHaveBeenCalledWith("logoutUser", logedOutUser);
+    });
+  });
 });
