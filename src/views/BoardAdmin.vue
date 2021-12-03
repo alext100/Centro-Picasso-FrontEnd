@@ -24,6 +24,8 @@
       :b2-duration="prices[3]?.duration"
       :c1-price="prices[4]?.price"
       :c1-duration="prices[4]?.duration"
+      :a1-i-d="prices[0]?.id"
+      :a2-i-d="prices[1]?.id"
     />
   </div>
 </template>
