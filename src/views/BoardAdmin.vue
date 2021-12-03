@@ -12,6 +12,12 @@
         <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" />
       </li>
     </ul>
+
+    <b-button v-on:click="isHiddenFormToCreate = !isHiddenFormToCreate" pill class="b-card__button mb-5 w-100"
+      >Añadir nuevo profesor</b-button
+    >
+    <form-new-teacher v-if="!isHiddenFormToCreate" />
+
     <h2>Precios</h2>
     <prices-table
       :a1-price="prices[0]?.price"
@@ -57,12 +63,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
+import FormNewTeacher from "@/components/FormNewTeacher.vue";
 import TeacherCard from "@/components/TeacherCard.vue";
 import PricesTable from "@/components/PricesTable.vue";
 
 export default defineComponent({
   name: "Admin",
-  components: { TeacherCard, PricesTable },
+  components: { TeacherCard, PricesTable, FormNewTeacher },
 
   computed: {
     ...mapState(["teachers", "currentUser", "prices"]),
@@ -77,6 +84,7 @@ export default defineComponent({
   data() {
     return {
       user: "",
+      isHiddenFormToCreate: true,
     };
   },
 });
