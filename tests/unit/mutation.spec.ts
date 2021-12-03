@@ -151,5 +151,35 @@ describe("Given a store mutations", () => {
         expect(state.prices).toStrictEqual(payload);
       });
     });
+
+    describe("When it receives a state and payload with array of prices", () => {
+      test("Then prices should be updated the store", () => {
+        mockedState = state;
+        const payload: Array<Prices> = [
+          {
+            price: 4900,
+            level: "A1",
+            duration: "4 mes",
+            id: "61a0c0dfe27603f8593b180b",
+          },
+          {
+            price: 5000,
+            level: "A2",
+            duration: "4 mes",
+            id: "61a0c396da7e9712a4996e29",
+          },
+          {
+            price: 5000,
+            level: "B1",
+            duration: "4 mes",
+            id: "61a8e38aa00fdc2c04499365",
+          },
+        ];
+
+        mutations.updatedPrice(mockedState, payload);
+
+        expect(state.prices).toStrictEqual(payload);
+      });
+    });
   });
 });
