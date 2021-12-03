@@ -78,7 +78,7 @@ const actions: any = {
     { commit }: ActionContext<State, State>,
     { newPrice, priceId, priceObject }: { newPrice: number; priceId: string; priceObject: Array<string | number> }
   ): Promise<void> {
-    const newPriseObject = { ...priceObject, price: newPrice }; //
+    const newPriseObject = { ...priceObject, price: newPrice };
     await axios.put(`${process.env.VUE_APP_URL}/prices/update/${priceId}`, newPriseObject);
     const { data: newPrices } = await axios.get(`${process.env.VUE_APP_URL}/prices/get-all`);
     commit("updatedPrice", newPrices);

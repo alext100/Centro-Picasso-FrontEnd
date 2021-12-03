@@ -47,7 +47,7 @@ enum CourseLevel {
 }
 interface Prices {
   price: number;
-  level: CourseLevel;
+  level: string;
   duration: string;
   id: string;
 }
