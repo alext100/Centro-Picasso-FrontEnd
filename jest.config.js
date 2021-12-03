@@ -12,5 +12,5 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.{js,vue,ts}", "!src/main.js"],
-  modulePathIgnorePatterns: ["src/main.ts", "src/store/index.ts", "src/types/interfaces.ts"],
+  modulePathIgnorePatterns: ["src/main.ts", "src/store/index.ts"],
 };
