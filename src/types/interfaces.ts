@@ -31,20 +31,6 @@ interface UserWithToken {
   token: string;
   refreshToken: string;
 }
-
-// eslint-disable-next-line no-shadow
-enum CourseLevel {
-  "A1",
-  "A2",
-  "B1",
-  "B2",
-  "C1",
-  "C2",
-  "Para una persona",
-  "Para dos personas",
-  "Para tres personas",
-  "Para cuatro personas",
-}
 interface Prices {
   price: number;
   level: string;
