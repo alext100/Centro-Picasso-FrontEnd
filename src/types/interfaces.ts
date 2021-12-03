@@ -55,11 +55,12 @@ interface UserLoginData {
 }
 interface UserRegisterData {
   username: string;
-  name: string;
   email: string;
   password: string;
   firstname: string;
   lastname: string;
+  image: string;
+  professorAccess: boolean;
 }
 
 export { UserModel, State, UserWithToken, UserLoginData, UserRegisterData, Prices };
