@@ -22,6 +22,14 @@ const mutations = {
     state.isAdmin = true;
   },
 
+  userIsTeacher(state: State) {
+    state.isProfessor = true;
+  },
+
+  userIsStudent(state: State) {
+    state.isStudent = true;
+  },
+
   loadTeachers(state: State, payload: Array<UserModel>) {
     state.teachers = payload;
   },

@@ -58,8 +58,9 @@
 
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import { UserLoginData } from "@/types/interfaces";
+import state from "@/store/state";
 
 export default defineComponent({
   setup() {
@@ -94,6 +95,7 @@ export default defineComponent({
   name: "Login",
   methods: {
     ...mapActions(["login"]),
+    ...mapState(["isProfessor", "isAdmin", "isStudent"]),
     checkForm() {
       if (this.username.length > 4 && this.password.length >= 4) {
         this.isDisabled = false;
@@ -110,7 +112,13 @@ export default defineComponent({
         try {
           await this.login(userData);
           this.isWrong = false;
-          this.$router.push("/admin");
+          if (state.isStudent === true) {
+            this.$router.push("/courses");
+          } else if (state.isProfessor === true) {
+            this.$router.push("/blog");
+          } else if (state.isAdmin === true) {
+            this.$router.push("/admin");
+          }
         } catch (error) {
           this.isWrong = true;
         }

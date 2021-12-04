@@ -46,6 +46,8 @@ interface State {
   currentUser: UserWithToken;
   isUserAuthenticated: boolean;
   isAdmin: boolean;
+  isProfessor: boolean;
+  isStudent: boolean;
   teachers: Array<UserModel>;
   prices: Array<Prices>;
 }
