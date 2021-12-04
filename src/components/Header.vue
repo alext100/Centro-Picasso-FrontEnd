@@ -55,6 +55,9 @@
               ><button class="logout-button" @click="handleLogout()">Logout</button></router-link
             >
           </li>
+          <li v-if="isAdmin" class="nav-item">
+            <router-link class="nav-link m-2" to="/admin">{{ "Admin" }}</router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -68,7 +71,7 @@ import { mapActions, mapState } from "vuex";
 export default defineComponent({
   name: "Header",
   props: {},
-  computed: { ...mapState(["currentUser", "isUserAuthenticated"]) },
+  computed: { ...mapState(["currentUser", "isUserAuthenticated", "isAdmin"]) },
   methods: {
     ...mapActions(["getUserFromLocalStorage", "deleteDataFromLocalStorage"]),
 
