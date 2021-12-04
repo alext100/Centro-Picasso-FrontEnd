@@ -33,6 +33,10 @@ const mutations = {
   updatedPrice(state: State, payload: Array<Prices>) {
     state.prices = payload;
   },
+
+  deleteTeacher(state: State, id: string) {
+    state.teachers = state.teachers.filter((teacher) => teacher.id !== id);
+  },
 };
 
 export default mutations;
