@@ -18,6 +18,8 @@ const mockedState = {
   refreshToken: "",
   isLoggedIn: false,
   isAdmin: false,
+  isProfessor: false,
+  isStudent: false,
   teachers: [],
   prices: [],
   currentUser: localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData") || "") : "",
