@@ -51,11 +51,11 @@ const actions: any = {
     commit("loadUser", data);
     if (data.adminAccess === true) {
       commit("userIsAdmin");
+    } else if (data.professorAccess) {
+      commit("userIsTeacher");
+    } else if (data.studentAccess) {
+      commit("userIsStudent");
     }
-    /*     if (data.professorAccess) {
-    }
-    if (data.studentAccess) {
-    } */
   },
 
   async deleteDataFromLocalStorage({ commit }: ActionContext<State, State>): Promise<void> {
