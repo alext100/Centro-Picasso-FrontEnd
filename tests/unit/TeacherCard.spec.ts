@@ -7,7 +7,7 @@ describe("Given a TeacherCard component", () => {
       test("Then it should show teachers first name, last name and a button text", async () => {
         const wrapper = mount(TeacherCard);
         // eslint-disable-next-line no-useless-concat
-        const cardText = `Pablo Lopez` + `Cambiar`;
+        const cardText = `Pablo Lopez` + `Borrar`;
 
         await wrapper.setProps({ firstname: "Pablo", lastname: "Lopez" });
 
