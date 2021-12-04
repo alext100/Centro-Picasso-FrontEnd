@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
+import { Groups, Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
 
 const mutations = {
   loginUser(state: State, payload: UserWithToken) {
@@ -36,6 +36,14 @@ const mutations = {
 
   loadPrices(state: State, payload: Array<Prices>) {
     state.prices = payload;
+  },
+
+  loadGroups(state: State, payload: Array<Groups>) {
+    state.groups = payload;
+  },
+
+  loadUserGroups(state: State, payload: Array<Groups>) {
+    state.userGroups = payload;
   },
 
   updatedPrice(state: State, payload: Array<Prices>) {
