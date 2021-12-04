@@ -37,6 +37,13 @@ interface Prices {
   duration: string;
   id: string;
 }
+
+interface Groups {
+  groupname: string;
+  members: Array<string>;
+  messages: Array<string>;
+  id: string;
+}
 interface State {
   user: UserModel;
   userId: string;
@@ -50,6 +57,8 @@ interface State {
   isStudent: boolean;
   teachers: Array<UserModel>;
   prices: Array<Prices>;
+  groups: Array<Groups>;
+  userGroups: Array<Groups>;
 }
 interface UserLoginData {
   username: string;
@@ -65,4 +74,4 @@ interface UserRegisterData {
   professorAccess: boolean;
 }
 
-export { UserModel, State, UserWithToken, UserLoginData, UserRegisterData, Prices };
+export { UserModel, State, UserWithToken, UserLoginData, UserRegisterData, Prices, Groups };
