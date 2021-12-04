@@ -83,9 +83,6 @@ export default defineComponent({
       this.$router.push("/");
     },
   },
-  mounted() {
-    this.getCurrentUser();
-  },
 });
 </script>
 
