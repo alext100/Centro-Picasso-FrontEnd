@@ -17,7 +17,7 @@ describe("Given a Header.vue component ", () => {
         },
       });
       const htmlSubstyring =
-        '<nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light">';
+        '<nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light p-3">';
 
       expect(wrapper.html()).toContain(htmlSubstyring);
       expect(wrapper.text()).toContain("Inicio");

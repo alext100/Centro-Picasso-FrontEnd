@@ -88,5 +88,10 @@ const actions: any = {
     await axios.post(`${process.env.VUE_APP_URL}/user/register`, userData);
     dispatch("getTeachersFromApi");
   },
+
+  async deleteTeacher({ commit }: ActionContext<State, State>, userId: string): Promise<void> {
+    await axios.delete(`${process.env.VUE_APP_URL}/user/delete/${userId}`);
+    commit("deleteTeacher", userId);
+  },
 };
 export default actions;

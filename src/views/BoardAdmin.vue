@@ -9,7 +9,7 @@
     <h2>Profesores</h2>
     <ul class="list-group-item-success">
       <li v-for="teacher in teachers || []" :key="teacher" class="container__list">
-        <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" />
+        <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" :userId="teacher.id" />
       </li>
     </ul>
 
