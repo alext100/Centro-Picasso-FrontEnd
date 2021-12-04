@@ -7,6 +7,9 @@ import Courses from "../views/Courses.vue";
 import Prices from "../views/Prices.vue";
 import Login from "../views/Login.vue";
 import BoardAdmin from "../views/BoardAdmin.vue";
+import TeacherBoard from "../views/TeacherBoard.vue";
+import Inscribirse from "../views/Inscribirse.vue";
+import StudentBoard from "../views/StudentBoard.vue";
 /* import protectedRoute from "./protectedRoute"; */
 
 const routes: Array<RouteRecordRaw> = [
@@ -36,6 +39,11 @@ const routes: Array<RouteRecordRaw> = [
     component: Courses,
   },
   {
+    path: "/inscribirse",
+    name: "Inscribirse",
+    component: Inscribirse,
+  },
+  {
     path: "/prices",
     name: "Prices",
     component: Prices,
@@ -50,6 +58,16 @@ const routes: Array<RouteRecordRaw> = [
     name: "Admin",
     component: BoardAdmin,
     /* beforeEnter: protectedRoute, */
+  },
+  {
+    path: "/teacher",
+    name: "TeacherBoard",
+    component: TeacherBoard,
+  },
+  {
+    path: "/student",
+    name: "StudentBoard",
+    component: StudentBoard,
   },
 ];
 

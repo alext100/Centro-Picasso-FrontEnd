@@ -113,9 +113,9 @@ export default defineComponent({
           await this.login(userData);
           this.isWrong = false;
           if (state.isStudent === true) {
-            this.$router.push("/courses");
+            this.$router.push("/student");
           } else if (state.isProfessor === true) {
-            this.$router.push("/blog");
+            this.$router.push("/teacher");
           } else if (state.isAdmin === true) {
             this.$router.push("/admin");
           }
