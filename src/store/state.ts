@@ -27,6 +27,8 @@ const state = {
   isUserAuthenticated: localStorage.getItem("userData") ? true : false,
   prices: [],
   teachers: [],
+  groups: [],
+  userGroups: [],
 };
 
 export default state as unknown as State;

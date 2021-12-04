@@ -22,6 +22,8 @@ const mockedState = {
   isStudent: false,
   teachers: [],
   prices: [],
+  groups: [],
+  userGroups: [],
   currentUser: localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData") || "") : "",
   // eslint-disable-next-line no-unneeded-ternary
   isUserAuthenticated: localStorage.getItem("userData") ? true : false,
