@@ -3,6 +3,7 @@ import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
 import { State, UserLoginData, UserWithToken } from "@/types/interfaces";
+import state from "./state";
 
 const actions: any = {
   async login({ dispatch }: ActionContext<State, State>, userData: UserLoginData): Promise<void> {
@@ -72,6 +73,20 @@ const actions: any = {
   async getPricesFromApi({ commit }: ActionContext<State, State>): Promise<void> {
     const { data } = await axios.get(`${process.env.VUE_APP_URL}/prices/get-all`);
     commit("loadPrices", data);
+  },
+
+  async getGroupsFromApi({ commit }: ActionContext<State, State>): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/group/get-all`);
+    commit("loadGroups", data);
+  },
+
+  async getUserGroupsFromApi({ commit }: ActionContext<State, State>): Promise<void> {
+    const { data } = await axios({
+      method: "GET",
+      url: `${process.env.VUE_APP_URL}/user/get-all-user-groups`,
+      headers: { Authorization: `Bearer ${state.currentUser.token}` },
+    });
+    commit("loadUserGroups", data.groups);
   },
 
   async updatePriceInDB(
