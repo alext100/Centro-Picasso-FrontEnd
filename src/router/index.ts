@@ -66,7 +66,7 @@ const routes: Array<RouteRecordRaw> = [
     component: TeacherBoard,
   },
   {
-    path: "/student",
+    path: "/student/:id",
     name: "StudentBoard",
     component: StudentBoard,
   },

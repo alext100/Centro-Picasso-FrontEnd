@@ -1,9 +1,17 @@
 <template>
   <div class="container">
-    <h2>Miembros del grupo:</h2>
+    <h2 class="mb-4">Miembros del grupo:</h2>
     <ul class="list-group-item-secondary">
       <li v-for="userFromGroup in loadedUsersFromGroup || []" :key="userFromGroup" class="container__list">
-        <p>{{ userFromGroup.firstname }} {{ userFromGroup.lastname }}</p>
+        <b-card>
+          <div class="mt-3">
+            <b-card-group deck>
+              <b-card bg-variant="light" class="text-center">
+                <b-card-text>{{ userFromGroup.firstname }} {{ userFromGroup.lastname }}</b-card-text>
+              </b-card>
+            </b-card-group>
+          </div>
+        </b-card>
       </li>
     </ul>
   </div>

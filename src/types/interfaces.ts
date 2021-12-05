@@ -41,7 +41,7 @@ interface Prices {
 interface Groups {
   groupname: string;
   members: Array<string>;
-  messages: Array<string>;
+  messages: Array<unknown>;
   id: string;
 }
 interface State {
