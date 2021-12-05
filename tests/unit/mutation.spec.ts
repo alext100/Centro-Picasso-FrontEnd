@@ -197,5 +197,15 @@ describe("Given a store mutations", () => {
         expect(state.currentGroup).toStrictEqual(payload);
       });
     });
+
+    describe("When it receives a state and deleteLoadedUsersFromGroup", () => {
+      test("Then loadedUsersFromGroup should be [] (empty array) in the store", () => {
+        mockedState = state;
+
+        mutations.deleteLoadedUsersFromGroup(mockedState);
+
+        expect(state.loadedUsersFromGroup).toStrictEqual([]);
+      });
+    });
   });
 });
