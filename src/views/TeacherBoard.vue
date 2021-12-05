@@ -8,7 +8,9 @@
       <h2>Mis grupos:</h2>
       <ul class="list-group-item-secondary">
         <li v-for="group in userGroups || []" :key="group" class="container__list">
-          <p>{{ group.groupname }}</p>
+          <router-link :to="'/group/' + group.id">
+            <p>{{ group.groupname }}</p>
+          </router-link>
           <b-button pill class="b-card__button mb-5 w-25">Borrar de mis grupos</b-button>
         </li>
       </ul>
@@ -59,24 +61,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
-}
-.message {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
+<style lang="scss" scoped>
 .container__list--try {
   position: relative;
 }

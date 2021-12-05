@@ -120,5 +120,19 @@ const actions: any = {
       dispatch("getUserGroupsFromApi");
     }
   },
+
+  async getGroupById({ commit }: ActionContext<State, State>, groupId: string): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/group/get-one-by-id/${groupId}`);
+    commit("loadOneGroup", data);
+  },
+
+  async getUserById({ commit }: ActionContext<State, State>, userId: string): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-one-by-id/${userId}`);
+    commit("loadedUsersFromGroup", { ...data });
+  },
+
+  async deleteLoadedUsers({ commit }: ActionContext<State, State>): Promise<void> {
+    commit("deleteLoadedUsersFromGroup");
+  },
 };
 export default actions;

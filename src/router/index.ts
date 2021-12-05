@@ -10,6 +10,7 @@ import BoardAdmin from "../views/BoardAdmin.vue";
 import TeacherBoard from "../views/TeacherBoard.vue";
 import Inscribirse from "../views/Inscribirse.vue";
 import StudentBoard from "../views/StudentBoard.vue";
+import GroupPage from "../views/Group.vue";
 /* import protectedRoute from "./protectedRoute"; */
 
 const routes: Array<RouteRecordRaw> = [
@@ -68,6 +69,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/student",
     name: "StudentBoard",
     component: StudentBoard,
+  },
+  {
+    path: "/group/:id",
+    name: "GroupPage",
+    component: GroupPage,
   },
 ];
 
