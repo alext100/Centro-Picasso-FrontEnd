@@ -207,5 +207,62 @@ describe("Given a store mutations", () => {
         expect(state.loadedUsersFromGroup).toStrictEqual([]);
       });
     });
+
+    describe("When it receives a state and payload with one group", () => {
+      test("Then group should be in the store equal a currentGroup", () => {
+        mockedState = state;
+        const payload: Array<Groups> = [
+          {
+            groupname: "AAAA",
+            members: [],
+            messages: [],
+            id: "61a0d8cb726c02fd1ef1f539",
+          },
+          {
+            groupname: "DDDD",
+            members: [],
+            messages: [],
+            id: "61a0d8e8726c02fd1ef1f53f",
+          },
+          {
+            groupname: "HHHH",
+            members: ["61abd38fa3a87125e3cafa67", "61ab732e549814b7da6a6264", "61a7c8aa0f7c5abd5aea323c"],
+            messages: [
+              {
+                message: "Los deberes para as´pkdgmadópkgmkádkmgf por`0iqjerg",
+                time: "2021-12-05T21:02:18.406Z",
+              },
+              {
+                message: "SAFASFASDF",
+                time: "2021-12-05T21:14:07.943Z",
+              },
+              {
+                message: "sdfgsdfg",
+                time: "2021-12-05T21:21:29.439Z",
+              },
+              {
+                message: "shtrhsrthsrthstrh",
+                time: "2021-12-05T21:25:24.966Z",
+              },
+              {
+                message: "adfngñoandñvionad`fivapdu",
+                time: "2021-12-05T21:26:30.925Z",
+              },
+            ],
+            id: "61ac2bb0c9da15a9378fb20d",
+          },
+          {
+            groupname: "DDDD",
+            members: [],
+            messages: [],
+            id: "61ad1d359749652ab4098845",
+          },
+        ];
+
+        mutations.loadUserGroups(mockedState, payload);
+
+        expect(state.userGroups).toStrictEqual(payload);
+      });
+    });
   });
 });
