@@ -1,7 +1,7 @@
 import state from "@/store/state";
 
-describe("Given a state to test", () => {
-  describe("When the real test is imported", () => {
+describe("Given a state", () => {
+  describe("When the real state is imported", () => {
     test("It should be equal to the state to test", () => {
       const stateToTest = {
         user: {
@@ -30,6 +30,10 @@ describe("Given a state to test", () => {
         isUserAuthenticated: localStorage.getItem("userData") ? true : false,
         prices: [],
         teachers: [],
+        groups: [],
+        userGroups: [],
+        currentGroup: {},
+        loadedUsersFromGroup: [],
       };
 
       expect(stateToTest).toStrictEqual(state);

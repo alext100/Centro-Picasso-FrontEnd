@@ -1,5 +1,5 @@
 <template>
-  <nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light p-3">
+  <nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light p-3 sticky-md-top">
     <div class="header_top offcanvas-body">
       <div class="align-items-md-center offcanvas-body mr-5">
         <img class="header_big-image align-self-md-start ml-2 mr-5" src="../../public/Centro-Picasso-200x91.png" alt="logo" />
@@ -10,7 +10,7 @@
         <div><em class="fas fa-phone-alt mr-2"></em><span>+7 (911) 844 26 28</span></div>
       </div>
     </div>
-    <div class="header_rule"></div>
+    <div class="header_rule table-bordered"></div>
     <div class="header_bottom">
       <img class="header_small-image" src="../../public/Centro-Picasso-120x55.png" alt="logo" />
       <button
@@ -25,7 +25,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="header_navbar-collapse align-self-md-end collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav toast-header">
           <li class="nav-item">
             <router-link class="nav-link m-2" to="/">Inicio</router-link>
           </li>
@@ -51,9 +51,7 @@
             <router-link class="nav-link m-2" to="/login">{{ "Login" }}</router-link>
           </li>
           <li v-if="isUserAuthenticated" class="nav-item">
-            <router-link class="nav-link m-2" to="/"
-              ><button class="logout-button" @click="handleLogout()">Logout</button></router-link
-            >
+            <router-link class="nav-link m-2" to="/"><button class="logout-button" @click="handleLogout()">Logout</button></router-link>
           </li>
           <li v-if="isAdmin" class="nav-item">
             <router-link class="nav-link m-2" to="/admin">{{ "Admin" }}</router-link>
@@ -139,6 +137,9 @@ export default defineComponent({
       display: none;
     }
   }
+}
+.toast-header {
+  background-color: inherit !important;
 }
 @media screen and (max-width: 991px) {
   .header_top {
