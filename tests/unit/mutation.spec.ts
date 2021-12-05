@@ -341,5 +341,90 @@ describe("Given a store mutations", () => {
         expect(state.userGroups).toStrictEqual(payload);
       });
     });
+
+    describe("When a deleteTeacher action receives a state and a payload with id of a teacher", () => {
+      test("Then teachers in the state should be without teacher that had received id", () => {
+        mockedState = state;
+        const idOfTeacherToDelete = "61a7c85e0f7c5abd5aea3238";
+        state.teachers = [
+          {
+            username: "pablo",
+            password: "$2b$10$vqJx/Vjrq75ygzySQJNEUu.Y3.t6aLYJ2mp2mbUmqM/OyEiZizw4S",
+            email: "pablo@asf",
+            firstname: "Pablo",
+            lastname: "Lopez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c85e0f7c5abd5aea3238",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+          },
+          {
+            username: "maria",
+            password: "$2b$10$gtoDQ8yc/ddtCy4ttyeel.uMK212RzF.0hrSiL20Bou1zaJpBNoJO",
+            email: "maria@asf",
+            firstname: "María",
+            lastname: "Fernandez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c88f0f7c5abd5aea323a",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+          },
+          {
+            username: "manuel",
+            password: "$2b$10$jxatXsPDPAPsR5DMNM8MO.Ie1kmrJZ4s8PklFr0XUOZWSnGiRp2YG",
+            email: "manuel@asf",
+            firstname: "Manuel",
+            lastname: "Gomez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c8aa0f7c5abd5aea323c",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+          },
+        ];
+        const updatedTeachers: Array<UserModel> = [
+          {
+            username: "maria",
+            password: "$2b$10$gtoDQ8yc/ddtCy4ttyeel.uMK212RzF.0hrSiL20Bou1zaJpBNoJO",
+            email: "maria@asf",
+            firstname: "María",
+            lastname: "Fernandez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c88f0f7c5abd5aea323a",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+          },
+          {
+            username: "manuel",
+            password: "$2b$10$jxatXsPDPAPsR5DMNM8MO.Ie1kmrJZ4s8PklFr0XUOZWSnGiRp2YG",
+            email: "manuel@asf",
+            firstname: "Manuel",
+            lastname: "Gomez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c8aa0f7c5abd5aea323c",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+          },
+        ];
+
+        mutations.deleteTeacher(mockedState, idOfTeacherToDelete);
+
+        expect(state.teachers).toStrictEqual(updatedTeachers);
+      });
+    });
   });
 });
