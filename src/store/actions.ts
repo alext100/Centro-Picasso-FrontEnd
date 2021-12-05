@@ -2,7 +2,7 @@
 import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
-import { State, UserLoginData, UserWithToken } from "@/types/interfaces";
+import { Groups, State, UserLoginData, UserWithToken } from "@/types/interfaces";
 import state from "./state";
 
 const actions: any = {
@@ -107,6 +107,18 @@ const actions: any = {
   async deleteTeacher({ commit }: ActionContext<State, State>, userId: string): Promise<void> {
     await axios.delete(`${process.env.VUE_APP_URL}/user/delete/${userId}`);
     commit("deleteTeacher", userId);
+  },
+
+  async addGroupToUser({ dispatch }: ActionContext<State, State>, groupId: string): Promise<void> {
+    const idOfGroup = (group: Groups) => group.id === groupId;
+    if (state.userGroups.find(idOfGroup) === undefined) {
+      await axios({
+        method: "PATCH",
+        url: `${process.env.VUE_APP_URL}/user/add-group-to-user/${groupId}`,
+        headers: { Authorization: `Bearer ${state.currentUser.token}` },
+      });
+      dispatch("getUserGroupsFromApi");
+    }
   },
 };
 export default actions;
