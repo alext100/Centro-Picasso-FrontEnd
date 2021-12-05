@@ -208,7 +208,7 @@ describe("Given a store mutations", () => {
       });
     });
 
-    describe("When it receives a state and payload with groups and loadUserGroups action", () => {
+    describe("When it receives a state and payload with groups and loadUserGroups mutation", () => {
       test("Then userGroups in the store should be equal a groups from payload", () => {
         mockedState = state;
         const payload: Array<Groups> = [
@@ -265,7 +265,7 @@ describe("Given a store mutations", () => {
       });
     });
 
-    describe("When it receives a state with userIsStudent action", () => {
+    describe("When it receives a state with userIsStudent mutation", () => {
       test("Then isStudent should be true in the store", () => {
         mockedState = state;
 
@@ -275,7 +275,7 @@ describe("Given a store mutations", () => {
       });
     });
 
-    describe("When it receives a state with userIsTeacher action", () => {
+    describe("When it receives a state with userIsTeacher mutation", () => {
       test("Then isProfessor  should be true in the store", () => {
         mockedState = state;
 
@@ -285,7 +285,7 @@ describe("Given a store mutations", () => {
       });
     });
 
-    describe("When it receives a state and payload with array of all groups and a loadGroups action", () => {
+    describe("When it receives a state and payload with array of all groups and a loadGroups mutation", () => {
       test("Then userGroups in the store should be equal a all groups", () => {
         mockedState = state;
         const payload: Array<Groups> = [
@@ -342,7 +342,7 @@ describe("Given a store mutations", () => {
       });
     });
 
-    describe("When a deleteTeacher action receives a state and a payload with id of a teacher", () => {
+    describe("When a deleteTeacher mutation receives a state and a payload with id of a teacher", () => {
       test("Then teachers in the state should be without teacher that had received id", () => {
         mockedState = state;
         const idOfTeacherToDelete = "61a7c85e0f7c5abd5aea3238";
@@ -424,6 +424,104 @@ describe("Given a store mutations", () => {
         mutations.deleteTeacher(mockedState, idOfTeacherToDelete);
 
         expect(state.teachers).toStrictEqual(updatedTeachers);
+      });
+    });
+
+    describe("When loadedUsersFromGroup mutation receives a state and user", () => {
+      test("Then loadedUsersFromGroup in state should have this user", () => {
+        mockedState = state;
+        state.loadedUsersFromGroup = [
+          {
+            username: "maria",
+            password: "$2b$108yc/ddtCyl.uMK212RzF.0hrSzaJpBNoJO",
+            email: "maria@asf",
+            firstname: "María",
+            lastname: "Fernandez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c88f0f7c5abd5aea323a",
+            image: "http://fr.shopping.ran.com/photo/14L.jpg",
+          },
+          {
+            username: "manuel",
+            password: "$2b$10$jxatXsPDMO.Ie1kmrJZ4s8PklFr0XUGiRp2YG",
+            email: "manuel@asf",
+            firstname: "Manuel",
+            lastname: "Gomez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c8aa0f7c5abd5aea323c",
+            image: "https://fr.shopping.rakuten.com/photo/148_L.jpg",
+          },
+        ];
+        const userToAdd = {
+          username: "pablo",
+          password: "$2b$10$vqJx/Vjrq75ygzySQJNEUu.Y3.t6aLYJ2mp2mbUmqM/OyEiZizw4S",
+          email: "pablo@asf",
+          firstname: "Pablo",
+          lastname: "Lopez",
+          adminAccess: false,
+          professorAccess: true,
+          studentAccess: false,
+          groups: [],
+          studentErrors: [],
+          id: "61a7c85e0f7c5abd5aea3238",
+          image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+        };
+        const updatedUsers = [
+          {
+            username: "maria",
+            password: "$2b$108yc/ddtCyl.uMK212RzF.0hrSzaJpBNoJO",
+            email: "maria@asf",
+            firstname: "María",
+            lastname: "Fernandez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c88f0f7c5abd5aea323a",
+            image: "http://fr.shopping.ran.com/photo/14L.jpg",
+          },
+          {
+            username: "manuel",
+            password: "$2b$10$jxatXsPDMO.Ie1kmrJZ4s8PklFr0XUGiRp2YG",
+            email: "manuel@asf",
+            firstname: "Manuel",
+            lastname: "Gomez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c8aa0f7c5abd5aea323c",
+            image: "https://fr.shopping.rakuten.com/photo/148_L.jpg",
+          },
+          {
+            username: "pablo",
+            password: "$2b$10$vqJx/Vjrq75ygzySQJNEUu.Y3.t6aLYJ2mp2mbUmqM/OyEiZizw4S",
+            email: "pablo@asf",
+            firstname: "Pablo",
+            lastname: "Lopez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c85e0f7c5abd5aea3238",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+          },
+        ];
+
+        mutations.loadedUsersFromGroup(mockedState, userToAdd);
+
+        expect(state.loadedUsersFromGroup).toStrictEqual(updatedUsers);
       });
     });
   });
