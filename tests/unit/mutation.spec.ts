@@ -264,5 +264,15 @@ describe("Given a store mutations", () => {
         expect(state.userGroups).toStrictEqual(payload);
       });
     });
+
+    describe("When it receives a state with userIsStudent action", () => {
+      test("Then isStudent should be true in the store", () => {
+        mockedState = state;
+
+        mutations.userIsStudent(mockedState);
+
+        expect(state.isStudent).toBe(true);
+      });
+    });
   });
 });
