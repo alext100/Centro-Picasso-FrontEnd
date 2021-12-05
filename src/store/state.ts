@@ -29,6 +29,8 @@ const state = {
   teachers: [],
   groups: [],
   userGroups: [],
+  currentGroup: {},
+  loadedUsersFromGroup: [],
 };
 
 export default state as unknown as State;

@@ -59,6 +59,8 @@ interface State {
   prices: Array<Prices>;
   groups: Array<Groups>;
   userGroups: Array<Groups>;
+  currentGroup: Array<Groups>;
+  loadedUsersFromGroup: Array<UserModel>;
 }
 interface UserLoginData {
   username: string;
