@@ -59,7 +59,7 @@ interface State {
   prices: Array<Prices>;
   groups: Array<Groups>;
   userGroups: Array<Groups>;
-  currentGroup: Array<Groups>;
+  currentGroup: Groups;
   loadedUsersFromGroup: Array<UserModel>;
 }
 interface UserLoginData {

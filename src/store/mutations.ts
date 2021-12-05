@@ -54,7 +54,7 @@ const mutations = {
     state.teachers = state.teachers.filter((teacher) => teacher.id !== id);
   },
 
-  loadOneGroup(state: State, payload: Array<Groups>) {
+  loadOneGroup(state: State, payload: Groups) {
     state.currentGroup = payload;
   },
 
