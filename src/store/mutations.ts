@@ -53,6 +53,18 @@ const mutations = {
   deleteTeacher(state: State, id: string) {
     state.teachers = state.teachers.filter((teacher) => teacher.id !== id);
   },
+
+  loadOneGroup(state: State, payload: Array<Groups>) {
+    state.currentGroup = payload;
+  },
+
+  loadedUsersFromGroup(state: State, payload: UserModel) {
+    state.loadedUsersFromGroup.push(payload);
+  },
+
+  deleteLoadedUsersFromGroup(state: State) {
+    state.loadedUsersFromGroup = [];
+  },
 };
 
 export default mutations;

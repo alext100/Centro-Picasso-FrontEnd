@@ -19,6 +19,7 @@
           class="form-input-price"
           max="20000"
           v-model="a1NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenA1Price"
@@ -45,6 +46,7 @@
           class="form-input-price"
           max="20000"
           v-model="a2NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenA2Price"
@@ -72,6 +74,7 @@
           class="form-input-price"
           max="20000"
           v-model="b1NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenB1Price"
@@ -98,6 +101,7 @@
           class="form-input-price"
           max="20000"
           v-model="b2NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenB2Price"
@@ -124,6 +128,7 @@
           class="form-input-price"
           max="20000"
           v-model="c1NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenC1Price"
@@ -151,6 +156,7 @@
           class="form-input-price"
           max="20000"
           v-model="p1NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenP1Price"
@@ -177,6 +183,7 @@
           class="form-input-price"
           max="20000"
           v-model="p2NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenP2Price"
@@ -203,6 +210,7 @@
           class="form-input-price"
           max="20000"
           v-model="p3NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenP3Price"
@@ -230,6 +238,7 @@
           class="form-input-price"
           max="20000"
           v-model="p4NewPrice"
+          step="100"
         ></b-form-input>
         <b-button
           v-if="!isHiddenP4Price"
