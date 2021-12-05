@@ -1,4 +1,4 @@
-import { Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
+import { Groups, Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
 import mutations from "@/store/mutations";
 import state from "../mockedState";
 
@@ -179,6 +179,22 @@ describe("Given a store mutations", () => {
         mutations.updatedPrice(mockedState, payload);
 
         expect(state.prices).toStrictEqual(payload);
+      });
+    });
+
+    describe("When it receives a state and payload with one group", () => {
+      test("Then group should be in the store equal a currentGroup", () => {
+        mockedState = state;
+        const payload: Groups = {
+          groupname: "AAAA",
+          members: [],
+          messages: ["asdfasdf"],
+          id: "61a0d8cb726c02fd1ef1f539",
+        };
+
+        mutations.loadOneGroup(mockedState, payload);
+
+        expect(state.currentGroup).toStrictEqual(payload);
       });
     });
   });
