@@ -274,5 +274,15 @@ describe("Given a store mutations", () => {
         expect(state.isStudent).toBe(true);
       });
     });
+
+    describe("When it receives a state with userIsTeacher action", () => {
+      test("Then isProfessor  should be true in the store", () => {
+        mockedState = state;
+
+        mutations.userIsTeacher(mockedState);
+
+        expect(state.isProfessor).toBe(true);
+      });
+    });
   });
 });
