@@ -134,5 +134,10 @@ const actions: any = {
   async deleteLoadedUsers({ commit }: ActionContext<State, State>): Promise<void> {
     commit("deleteLoadedUsersFromGroup");
   },
+
+  async updateGroup({ dispatch }: ActionContext<State, State>, groupToUpdate: Groups): Promise<void> {
+    await axios.put(`${process.env.VUE_APP_URL}/group/update/${groupToUpdate.id}`, groupToUpdate);
+    dispatch("getGroupById", groupToUpdate.id);
+  },
 };
 export default actions;
