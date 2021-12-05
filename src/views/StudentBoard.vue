@@ -1,15 +1,27 @@
 <template>
-  <h1>En esta página, el alumno podrá ver mensajes de su profesor con tareas, materiales de estudio, etc.</h1>
+  <h1 class="m-3">¡Hola {{ currentUser.firstname }}! Estás en grupo {{ currentGroup.groupname }}</h1>
+
+  <GroupMessagesVue />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
+import GroupMessagesVue from "@/components/GroupMessages.vue";
 
 export default defineComponent({
+  components: {
+    GroupMessagesVue,
+  },
   name: "StudentBoard",
   computed: {
-    ...mapState(["currentUser"]),
+    ...mapState(["currentUser", "currentGroup"]),
+  },
+  methods: {
+    ...mapActions(["getGroupById"]),
+  },
+  mounted() {
+    this.getGroupById(this.currentUser.groups[0]);
   },
 });
 </script>

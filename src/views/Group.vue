@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Group {{ currentGroup.groupname }}</h1>
+    <h1>Grupo {{ currentGroup.groupname }}</h1>
 
     <GroupMembersVue />
 
