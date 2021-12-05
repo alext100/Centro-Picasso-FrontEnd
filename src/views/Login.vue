@@ -113,7 +113,7 @@ export default defineComponent({
           await this.login(userData);
           this.isWrong = false;
           if (state.isStudent === true) {
-            this.$router.push("/student");
+            this.$router.push({ path: `/student/${state.currentUser.id}` });
           } else if (state.isProfessor === true) {
             this.$router.push("/teacher");
           } else if (state.isAdmin === true) {

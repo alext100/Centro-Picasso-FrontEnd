@@ -27,7 +27,7 @@
         </div>
       </b-form>
     </b-card>
-    <b-button class="login-form--submit-button" @click="handleAddMessage" type="submit" pill>Enviar</b-button>
+    <b-button class="input-form--submit-button mb-3 mt-1" @click="handleAddMessage" type="submit" pill>Enviar</b-button>
   </div>
 </template>
 
@@ -51,11 +51,6 @@ export default defineComponent({
     };
   },
 
-  data() {
-    return {
-      userData: { username: null },
-    };
-  },
   name: "GroupInputMessage",
   methods: {
     ...mapActions(["updateGroup"]),
@@ -64,7 +59,7 @@ export default defineComponent({
       const groupToUpdate = {
         groupname: state.currentGroup.groupname,
         members: state.currentGroup.members,
-        messages: [...state.currentGroup.messages, this.message],
+        messages: [...state.currentGroup.messages, { message: this.message, time: new Date() }],
         id: state.currentGroup.id,
       };
       await this.updateGroup(groupToUpdate);
@@ -74,12 +69,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.login-form {
-  max-width: 600px !important;
-}
-button.login-form--submit-button {
+button.input-form--submit-button {
   width: 100px;
-  background-color: #cc1810;
+  background-color: #fd8904;
   color: white;
 }
 </style>
