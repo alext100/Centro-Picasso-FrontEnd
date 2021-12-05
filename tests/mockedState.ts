@@ -1,3 +1,5 @@
+import { State } from "@/types/interfaces";
+
 const mockedState = {
   user: {
     id: "",
@@ -20,14 +22,14 @@ const mockedState = {
   isAdmin: false,
   isProfessor: false,
   isStudent: false,
-  teachers: [],
+  currentUser: localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData") || "") : "",
+  // eslint-disable-next-line no-unneeded-ternary
+  isUserAuthenticated: localStorage.getItem("userData") ? true : false,
   prices: [],
+  teachers: [],
   groups: [],
   userGroups: [],
   currentGroup: {},
   loadedUsersFromGroup: [],
-  currentUser: localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData") || "") : "",
-  // eslint-disable-next-line no-unneeded-ternary
-  isUserAuthenticated: localStorage.getItem("userData") ? true : false,
 };
-export default mockedState;
+export default mockedState as unknown as State;
