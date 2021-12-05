@@ -10,7 +10,7 @@
         <div><em class="fas fa-phone-alt mr-2"></em><span>+7 (911) 844 26 28</span></div>
       </div>
     </div>
-    <div class="header_rule"></div>
+    <div class="header_rule table-bordered"></div>
     <div class="header_bottom">
       <img class="header_small-image" src="../../public/Centro-Picasso-120x55.png" alt="logo" />
       <button
@@ -137,6 +137,9 @@ export default defineComponent({
       display: none;
     }
   }
+}
+.toast-header {
+  background-color: inherit !important;
 }
 @media screen and (max-width: 991px) {
   .header_top {
