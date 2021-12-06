@@ -163,5 +163,17 @@ const actions: any = {
     const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-one-by-id/${userId}`);
     commit("loadOneUserById", data);
   },
+
+  async deleteUserGroup({ dispatch }: ActionContext<State, State>, groupId: string): Promise<void> {
+    const idOfGroup = (group: Groups) => group.id === groupId;
+    if (state.userGroups.find(idOfGroup) !== undefined) {
+      await axios({
+        method: "PATCH",
+        url: `http://localhost:4444/user/delete-group-from-user/${groupId}`,
+        headers: { Authorization: `Bearer ${state.currentUser.token}` },
+      });
+      dispatch("getUserGroupsFromApi");
+    }
+  },
 };
 export default actions;
