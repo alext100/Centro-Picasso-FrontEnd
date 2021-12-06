@@ -127,10 +127,10 @@ export default defineComponent({
 .header_bottom {
   height: 80px;
   .header_small-image {
-    margin-right: 10rem;
+    margin-right: 8rem;
   }
   .header_toggle-button {
-    margin-left: 10rem;
+    margin-left: 8rem;
   }
   @media screen and (min-width: 992px) {
     .header_small-image {

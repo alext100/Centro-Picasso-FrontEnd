@@ -7,9 +7,9 @@
           <div class="mt-3">
             <b-card-group deck>
               <b-card bg-variant="light" :header="new Date(error.date).toLocaleString()" class="text-center">
-                <b-card-sub-title>Tipo: {{ error.errorType }}</b-card-sub-title>
-                <b-card-text>Entrada: {{ error.errorComment }}</b-card-text>
-                <b-card-text>Comentario: {{ error.errorMessage }}</b-card-text>
+                <b-card-sub-title><strong>Tipo:</strong> {{ error.errorType }}</b-card-sub-title>
+                <b-card-text><strong>Entrada:</strong> {{ error.errorComment }}</b-card-text>
+                <b-card-text><strong>Comentario:</strong> {{ error.errorMessage }}</b-card-text>
               </b-card>
             </b-card-group>
           </div>
