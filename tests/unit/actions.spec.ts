@@ -244,4 +244,17 @@ describe("Given an actions from store", () => {
       expect(commit).toHaveBeenCalledWith("loadGroups", data);
     });
   });
+
+  describe("When the action registerUser is invoked", () => {
+    test("Then it should call commit with getTeachersFromApi and received data", async () => {
+      const data = { username: "aerstfg", password: "aefgasdga" };
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.registerUser(configActionContextDispatch(dispatch));
+
+      expect(dispatch).toHaveBeenCalledWith("getTeachersFromApi");
+    });
+  });
 });
