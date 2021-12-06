@@ -11,6 +11,7 @@ import TeacherBoard from "../views/TeacherBoard.vue";
 import Inscribirse from "../views/Inscribirse.vue";
 import StudentBoard from "../views/StudentBoard.vue";
 import GroupPage from "../views/Group.vue";
+import OnlineLesson from "../components/OnlineLesson.vue";
 /* import protectedRoute from "./protectedRoute"; */
 
 const routes: Array<RouteRecordRaw> = [
@@ -74,6 +75,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/group/:id",
     name: "GroupPage",
     component: GroupPage,
+  },
+  {
+    path: "/online-lesson/:id",
+    name: "StudentBoard",
+    component: OnlineLesson,
   },
 ];
 

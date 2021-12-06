@@ -7,7 +7,9 @@
           <div class="mt-3">
             <b-card-group deck>
               <b-card bg-variant="light" class="text-center">
-                <b-card-text>{{ userFromGroup.firstname }} {{ userFromGroup.lastname }}</b-card-text>
+                <router-link :to="'/online-lesson/' + userFromGroup.id">
+                  <b-card-text>{{ userFromGroup.firstname }} {{ userFromGroup.lastname }}</b-card-text>
+                </router-link>
               </b-card>
             </b-card-group>
           </div>
