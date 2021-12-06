@@ -31,5 +31,7 @@ const mockedState = {
   userGroups: [],
   currentGroup: {},
   loadedUsersFromGroup: [],
+  currentStudentErrors: [],
+  loadedOneUserById: {},
 };
 export default mockedState as unknown as State;

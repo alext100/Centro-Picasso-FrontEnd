@@ -31,6 +31,8 @@ const state = {
   userGroups: [],
   currentGroup: {},
   loadedUsersFromGroup: [],
+  currentStudentErrors: [],
+  loadedOneUserById: {},
 };
 
 export default state as unknown as State;

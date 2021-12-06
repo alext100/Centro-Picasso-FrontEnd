@@ -260,9 +260,9 @@ describe("Given an actions from store", () => {
     });
   });
 
-/*   describe("When the action login is executed successfully", () => {
+  /*   describe("When the action login is executed successfully", () => {
     test("Login should call dispatch", async () => {
-      /* const userData = {} as UserLoginData; */
+      // const userData = {} as UserLoginData;
       const mockedState = state;
       const userData = { username: mockedState.user.username, password: mockedState.user.password, data: { token: mockedState.token } };
       const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwiaWQiOiI2MWE3Yzg4ZjBmN2M1YWJkNWFlYTMyM2EiLCJpYXQiOjE2Mzg2MzUyODAsImV4cCI6MTYzODg5NDQ4MH0.YeLWuXTKg_GloPhLd6KcXIMxjdwCK6RzorFoNL4_TO4`;
