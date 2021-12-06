@@ -1,11 +1,12 @@
 import axios from "axios";
-import { Commit } from "vuex";
+import { Commit, Dispatch } from "vuex";
 import actions from "@/store/actions";
-import configActionContext from "../test-utils";
+import { configActionContext, configActionContextDispatch } from "../test-utils";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 const commit = jest.fn() as jest.MockedFunction<Commit>;
+const dispatch = jest.fn() as jest.MockedFunction<Dispatch>;
 
 describe("Given an actions from store", () => {
   describe("When the action getPricesFromApi is invoked", () => {
@@ -105,6 +106,21 @@ describe("Given an actions from store", () => {
       await actions.deleteLoadedUsers(configActionContext(commit));
 
       expect(commit).toHaveBeenCalledWith("deleteLoadedUsersFromGroup");
+    });
+  });
+
+  describe("When the action updateGroup is invoked", () => {
+    test("Then it should invoke commit with getGroupById and id of the group to update", async () => {
+      const groupToUpdate = {
+        groupname: "DDDD",
+        members: [],
+        messages: [],
+        id: "61a0d8e8726c02fd1ef1f53f",
+      };
+
+      await actions.updateGroup(configActionContextDispatch(dispatch), groupToUpdate);
+
+      expect(dispatch).toHaveBeenCalledWith("getGroupById", groupToUpdate.id);
     });
   });
 });

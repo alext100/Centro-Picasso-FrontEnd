@@ -1,4 +1,4 @@
-import { Commit } from "vuex";
+import { Commit, Dispatch } from "vuex";
 import { State } from "@/types/interfaces";
 
 const configActionContext = (commit: Commit): any => ({
@@ -9,4 +9,12 @@ const configActionContext = (commit: Commit): any => ({
   rootGetters: jest.fn(),
 });
 
-export default configActionContext;
+const configActionContextDispatch = (dispatch: Dispatch): any => ({
+  commit: jest.fn(),
+  dispatch,
+  getters: jest.fn(),
+  rootState: {} as State,
+  rootGetters: jest.fn(),
+});
+
+export { configActionContext, configActionContextDispatch };
