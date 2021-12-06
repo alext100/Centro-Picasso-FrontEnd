@@ -99,4 +99,12 @@ describe("Given an actions from store", () => {
       expect(commit).toHaveBeenCalledWith("logoutUser", logedOutUser);
     });
   });
+
+  describe("When the action deleteLoadedUsers is invoked", () => {
+    test("Then it should invoke commit with deleteLoadedUsersFromGroup", async () => {
+      await actions.deleteLoadedUsers(configActionContext(commit));
+
+      expect(commit).toHaveBeenCalledWith("deleteLoadedUsersFromGroup");
+    });
+  });
 });
