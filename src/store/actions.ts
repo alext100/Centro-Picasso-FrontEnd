@@ -2,7 +2,7 @@
 import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
-import { Groups, State, UserLoginData, UserWithToken } from "@/types/interfaces";
+import { Errors, Groups, State, UserLoginData, UserWithToken } from "@/types/interfaces";
 import state from "./state";
 
 const actions: any = {
@@ -138,6 +138,30 @@ const actions: any = {
   async updateGroup({ dispatch }: ActionContext<State, State>, groupToUpdate: Groups): Promise<void> {
     await axios.put(`${process.env.VUE_APP_URL}/group/update/${groupToUpdate.id}`, groupToUpdate);
     dispatch("getGroupById", groupToUpdate.id);
+  },
+
+  async addErrorToUser({ dispatch }: ActionContext<State, State>, { userId, userError }: { userId: string; userError: Errors }): Promise<void> {
+    const { data } = await axios.patch(`${process.env.VUE_APP_URL}/user/add-error-to-user/${userId}`, userError);
+    dispatch("getUserErrorsById", data.id);
+  },
+
+  async getAllCurrentUserErrors({ commit }: ActionContext<State, State>): Promise<void> {
+    const { data } = await axios({
+      method: "GET",
+      url: `${process.env.VUE_APP_URL}/error/get-all`,
+      headers: { Authorization: `Bearer ${state.currentUser.token}` },
+    });
+    commit("addUserError", data.errors);
+  },
+
+  async getUserErrorsById({ commit }: ActionContext<State, State>, userId: string): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-all-user-errors/${userId}`);
+    commit("addUserError", data.studentErrors);
+  },
+
+  async getOneUserById({ commit }: ActionContext<State, State>, userId: string): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-one-by-id/${userId}`);
+    commit("loadOneUserById", data);
   },
 };
 export default actions;
