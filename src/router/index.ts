@@ -78,7 +78,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/online-lesson/:id",
-    name: "StudentBoard",
+    name: "OnlineLesson",
     component: OnlineLesson,
   },
 ];
