@@ -1,6 +1,8 @@
 import axios from "axios";
 import { Commit, Dispatch } from "vuex";
+import jwtDecode from "jwt-decode";
 import actions from "@/store/actions";
+import state from "../mockedState";
 import { configActionContext, configActionContextDispatch } from "../test-utils";
 
 jest.mock("axios");
@@ -257,4 +259,42 @@ describe("Given an actions from store", () => {
       expect(dispatch).toHaveBeenCalledWith("getTeachersFromApi");
     });
   });
+
+/*   describe("When the action login is executed successfully", () => {
+    test("Login should call dispatch", async () => {
+      /* const userData = {} as UserLoginData; */
+      const mockedState = state;
+      const userData = { username: mockedState.user.username, password: mockedState.user.password, data: { token: mockedState.token } };
+      const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwiaWQiOiI2MWE3Yzg4ZjBmN2M1YWJkNWFlYTMyM2EiLCJpYXQiOjE2Mzg2MzUyODAsImV4cCI6MTYzODg5NDQ4MH0.YeLWuXTKg_GloPhLd6KcXIMxjdwCK6RzorFoNL4_TO4`;
+      mockedAxios.post.mockResolvedValue({
+        data: {
+          username: "maria",
+          password: "$2b$10$gtoDQ8yc/ddtCy4ttyeel.uMK212RzF.0hrSiL20Bou1zaJpBNoJO",
+          email: "maria@asf",
+          firstname: "María",
+          lastname: "Fernandez",
+          adminAccess: false,
+          professorAccess: true,
+          studentAccess: false,
+          groups: [
+            "61a0d8cb726c02fd1ef1f539",
+            "619f6039715b49f29a18d374",
+            "61a0d8d2726c02fd1ef1f53b",
+            "61ac2bb0c9da15a9378fb20d",
+            "61ac2ba9c9da15a9378fb20b",
+            "61ac2b8dc9da15a9378fb209",
+            "61ac2b80c9da15a9378fb207",
+          ],
+          studentErrors: [],
+          image: "https://i.ebayimg.com/thumbs/images/g/OtcAAOSwzbVbAwFX/s-l300.jpg",
+          id: "61a7c88f0f7c5abd5aea323a",
+        },
+      });
+      const user = jwtDecode(token);
+
+      await actions.login(configActionContextDispatch(dispatch), { user, token });
+
+      expect(dispatch).toHaveBeenCalledWith("userLogedFromApi");
+    });
+  }); */
 });
