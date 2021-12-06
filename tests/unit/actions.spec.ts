@@ -152,4 +152,30 @@ describe("Given an actions from store", () => {
       expect(commit).toHaveBeenCalledWith("loadedUsersFromGroup", { ...data });
     });
   });
+
+  describe("When the action getGroupById is invoked with a group id", () => {
+    test("Then it should call commit with loadOneGroup and received data", async () => {
+      const groupID = "61ac2b80c9da15a9378fb207";
+      const data = [
+        {
+          groupname: "EEEE",
+          members: ["61a7c85e0f7c5abd5aea3238", "61a7c88f0f7c5abd5aea323a", "61a7c8aa0f7c5abd5aea323c"],
+          messages: [
+            {
+              message: "Los deberes: aliosjdjnbfoaqrngr`qeirngvpaqnvaqñdkfq qirf`qiç",
+              time: "2021-12-05T21:00:02.251Z",
+            },
+          ],
+          id: "61ac2b80c9da15a9378fb207",
+        },
+      ];
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.getGroupById(configActionContext(commit), groupID);
+
+      expect(commit).toHaveBeenCalledWith("loadOneGroup", data);
+    });
+  });
 });
