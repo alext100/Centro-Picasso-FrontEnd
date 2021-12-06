@@ -11,7 +11,7 @@
           <router-link :to="'/group/' + group.id">
             <p>{{ group.groupname }}</p>
           </router-link>
-          <b-button pill class="b-card__button mb-5 w-25">Borrar de mis grupos</b-button>
+          <b-button @click="handleDeleteGroupe(group.id)" pill class="b-card__button mb-5 w-25">Borrar de mis grupos</b-button>
         </li>
       </ul>
     </div>
@@ -44,9 +44,12 @@ export default defineComponent({
     ...mapState(["currentUser", "groups", "userGroups"]),
   },
   methods: {
-    ...mapActions(["getGroupsFromApi", "getUserGroupsFromApi", "addGroupToUser"]),
+    ...mapActions(["getGroupsFromApi", "getUserGroupsFromApi", "addGroupToUser", "deleteUserGroup"]),
     async handleAddToMyGroups(groupID: string) {
       await this.addGroupToUser(groupID);
+    },
+    async handleDeleteGroupe(groupID: string) {
+      await this.deleteUserGroup(groupID);
     },
   },
   mounted() {
