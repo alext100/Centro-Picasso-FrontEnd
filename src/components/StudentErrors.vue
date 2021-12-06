@@ -10,6 +10,7 @@
                 <b-card-sub-title><strong>Tipo:</strong> {{ error.errorType }}</b-card-sub-title>
                 <b-card-text><strong>Entrada:</strong> {{ error.errorComment }}</b-card-text>
                 <b-card-text><strong>Comentario:</strong> {{ error.errorMessage }}</b-card-text>
+                <b-button @click="handleDeleteError(error.id)"><em class="far fa-trash-alt"></em></b-button>
               </b-card>
             </b-card-group>
           </div>
@@ -29,7 +30,10 @@ export default defineComponent({
     ...mapState(["currentStudentErrors", "loadedOneUserById"]),
   },
   methods: {
-    ...mapActions(["getUserErrorsById", "getOneUserById"]),
+    ...mapActions(["getUserErrorsById", "getOneUserById", "deleteErrorFromUser"]),
+    async handleDeleteError(userErrorId: string) {
+      await this.deleteErrorFromUser({ userId: this.$route.params.id, userErrorId });
+    },
   },
   mounted() {
     this.getUserErrorsById(this.$route.params.id);

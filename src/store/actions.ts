@@ -169,11 +169,19 @@ const actions: any = {
     if (state.userGroups.find(idOfGroup) !== undefined) {
       await axios({
         method: "PATCH",
-        url: `http://localhost:4444/user/delete-group-from-user/${groupId}`,
+        url: `${process.env.VUE_APP_URL}/user/delete-group-from-user/${groupId}`,
         headers: { Authorization: `Bearer ${state.currentUser.token}` },
       });
       dispatch("getUserGroupsFromApi");
     }
+  },
+
+  async deleteErrorFromUser(
+    { dispatch }: ActionContext<State, State>,
+    { userId, userErrorId }: { userId: string; userErrorId: string }
+  ): Promise<void> {
+    const { data } = await axios.patch(`${process.env.VUE_APP_URL}/user/delete-error-from-user/${userId}`, { id: userErrorId });
+    dispatch("getUserErrorsById", data);
   },
 };
 export default actions;
