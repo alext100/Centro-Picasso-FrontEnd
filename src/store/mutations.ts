@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Groups, Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
+import { Errors, Groups, Prices, State, UserModel, UserWithToken } from "@/types/interfaces";
 
 const mutations = {
   loginUser(state: State, payload: UserWithToken) {
@@ -16,6 +16,9 @@ const mutations = {
     state.isUserAuthenticated = false;
     state.currentUser.token = payload.token;
     state.currentUser.refreshToken = payload.refreshToken;
+    state.isAdmin = false;
+    state.isProfessor = false;
+    state.isStudent = false;
   },
 
   userIsAdmin(state: State) {
@@ -64,6 +67,14 @@ const mutations = {
 
   deleteLoadedUsersFromGroup(state: State) {
     state.loadedUsersFromGroup = [];
+  },
+
+  addUserError(state: State, payload: Array<Errors>) {
+    state.currentStudentErrors = payload;
+  },
+
+  loadOneUserById(state: State, payload: UserModel) {
+    state.loadedOneUserById = payload;
   },
 };
 
