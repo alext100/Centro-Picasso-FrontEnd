@@ -1,0 +1,46 @@
+<template>
+  <div class="container">
+    <h2 class="mb-4">Los apuntes de {{ loadedOneUserById.firstname }}:</h2>
+    <ul class="list-group-item-secondary reverseorder">
+      <li v-for="error in currentStudentErrors || []" :key="error" class="container__list">
+        <b-card>
+          <div class="mt-3">
+            <b-card-group deck>
+              <b-card bg-variant="light" :header="new Date(error.date).toLocaleString()" class="text-center">
+                <b-card-sub-title>Tipo: {{ error.errorType }}</b-card-sub-title>
+                <b-card-text>Entrada: {{ error.errorComment }}</b-card-text>
+                <b-card-text>Comentario: {{ error.errorMessage }}</b-card-text>
+              </b-card>
+            </b-card-group>
+          </div>
+        </b-card>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapActions, mapState } from "vuex";
+
+export default defineComponent({
+  name: "StudentErrors",
+  computed: {
+    ...mapState(["currentStudentErrors", "loadedOneUserById"]),
+  },
+  methods: {
+    ...mapActions(["getUserErrorsById", "getOneUserById"]),
+  },
+  mounted() {
+    this.getUserErrorsById(this.$route.params.id);
+    this.getOneUserById(this.$route.params.id);
+  },
+});
+</script>
+
+<style scoped>
+.reverseorder {
+  display: flex;
+  flex-direction: column-reverse;
+}
+</style>

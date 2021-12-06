@@ -38,6 +38,13 @@ interface Prices {
   id: string;
 }
 
+interface Errors {
+  errorMessage: string;
+  errorComment: string;
+  errorType: string;
+  date?: string;
+}
+
 interface Groups {
   groupname: string;
   members: Array<string>;
@@ -61,6 +68,8 @@ interface State {
   userGroups: Array<Groups>;
   currentGroup: Groups;
   loadedUsersFromGroup: Array<UserModel>;
+  currentStudentErrors: Array<Errors>;
+  loadedOneUserById: UserModel;
 }
 interface UserLoginData {
   username: string;
@@ -76,4 +85,4 @@ interface UserRegisterData {
   professorAccess: boolean;
 }
 
-export { UserModel, State, UserWithToken, UserLoginData, UserRegisterData, Prices, Groups };
+export { UserModel, State, UserWithToken, UserLoginData, UserRegisterData, Prices, Groups, Errors };
