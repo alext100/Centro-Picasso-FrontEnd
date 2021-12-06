@@ -207,4 +207,41 @@ describe("Given an actions from store", () => {
       expect(commit).toHaveBeenCalledWith("deleteTeacher", userID);
     });
   });
+
+  describe("When the action getGroupsFromApi is invoked", () => {
+    test("Then it should call commit with loadGroups and received data", async () => {
+      const data = [
+        {
+          groupname: "CCCC",
+          members: [],
+          messages: [],
+          id: "61a0d8d8726c02fd1ef1f53d",
+        },
+        {
+          groupname: "DDDD",
+          members: [],
+          messages: [],
+          id: "61a0d8e8726c02fd1ef1f53f",
+        },
+        {
+          groupname: "EEEE",
+          members: ["61a7c85e0f7c5abd5aea3238", "61a7c88f0f7c5abd5aea323a", "61a7c8aa0f7c5abd5aea323c"],
+          messages: [
+            {
+              message: "Los deberes: aliosjdjnbfoaqrngr`qeirngvpaqnvaqñdkfq qirf`qiç",
+              time: "2021-12-05T21:00:02.251Z",
+            },
+          ],
+          id: "61ac2b80c9da15a9378fb207",
+        },
+      ];
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.getGroupsFromApi(configActionContext(commit));
+
+      expect(commit).toHaveBeenCalledWith("loadGroups", data);
+    });
+  });
 });
