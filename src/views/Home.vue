@@ -1,9 +1,11 @@
 <template>
   <div class="home align-items-center d-flex flex-column justify-content-center">
     <p class="home_text">Nuevos grupos</p>
+    <b-button class="moreinfo-button m-3" pill>Más info</b-button>
   </div>
   <PorqueNosotrosVue />
   <CursosOnMainPage />
+  <SobreElCentroOnMainPage />
   <div class="container">
     <h2 class="d-flex justify-content-around m-4">Profesores</h2>
     <ul class="list-group-item-success">
@@ -20,10 +22,11 @@ import { mapActions, mapState } from "vuex";
 import PorqueNosotrosVue from "@/components/PorqueNosotros.vue";
 import TeacherCard from "@/components/TeacherCard.vue";
 import CursosOnMainPage from "@/components/CursosOnMainPage.vue";
+import SobreElCentroOnMainPage from "@/components/SobreElCenroOnMainPage.vue";
 
 export default defineComponent({
   name: "Home",
-  components: { PorqueNosotrosVue, TeacherCard, CursosOnMainPage },
+  components: { PorqueNosotrosVue, TeacherCard, CursosOnMainPage, SobreElCentroOnMainPage },
   computed: {
     ...mapState(["teachers"]),
   },
@@ -51,6 +54,10 @@ button.home_button-more-info {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-size: 30px;
+}
+button.moreinfo-button {
+  background-color: #cc1810;
+  font-size: 25px;
 }
 @media screen and (max-width: 991px) {
   .home {

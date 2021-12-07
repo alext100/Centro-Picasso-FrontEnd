@@ -10,7 +10,7 @@
     </transition>
     <b-card-group>
       <transition name="slide-fade" appear>
-        <b-card border-variant="light" class="m-4 porque-nosotros-card">
+        <b-card border-variant="light" class="m-4 porque-nosotros-card" style="min-width: 300px">
           <b-card-header class="text-center" header-class="porque-nosotros-card-header" border-variant="light" header-bg-variant="transparent"
             >Profesores</b-card-header
           >
@@ -21,7 +21,7 @@
         </b-card>
       </transition>
       <transition name="slide-fade-right" appear>
-        <b-card border-variant="light" class="m-4 porque-nosotros-card">
+        <b-card border-variant="light" class="m-4 porque-nosotros-card" style="min-width: 300px">
           <b-card-header class="text-center" header-class="porque-nosotros-card-header" border-variant="light" header-bg-variant="transparent"
             >Castellano</b-card-header
           >
@@ -35,7 +35,7 @@
 
     <transition name="slide-fade-header" appear>
       <b-card-group>
-        <b-card border-variant="light" class="m-4 porque-nosotros-card porque-nosotros-card--groups">
+        <b-card border-variant="light" class="m-4 porque-nosotros-card porque-nosotros-card--groups" style="min-width: 300px">
           <b-card-header class="text-center" header-class="porque-nosotros-card-header" border-variant="light" header-bg-variant="transparent"
             >Grupos pequeños</b-card-header
           >
