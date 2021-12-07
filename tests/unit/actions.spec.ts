@@ -305,6 +305,7 @@ describe("Given an actions from store", () => {
 
   describe("When the action getUserErrorsById is invoked", () => {
     test("Then it should invoke commit with addUserError and received data.studentErrors", async () => {
+      const userId = "61a7c88f0f7c5abg5ha5ea323a";
       const data = {
         username: "maria",
         password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
@@ -323,9 +324,36 @@ describe("Given an actions from store", () => {
         data,
       });
 
-      await actions.getUserErrorsById(configActionContext(commit));
+      await actions.getUserErrorsById(configActionContext(commit), userId);
 
       expect(commit).toHaveBeenCalledWith("addUserError", data.studentErrors);
+    });
+  });
+
+  describe("When the action getOneUserById is invoked", () => {
+    test("Then it should invoke commit with loadOneUserById and received data", async () => {
+      const userId = "61a7c88f0f7c5abg5ha5ea323a";
+      const data = {
+        username: "maria",
+        password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+        email: "maria@asf",
+        firstname: "María",
+        lastname: "Fernandez",
+        adminAccess: false,
+        professorAccess: true,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+        id: "61a7c88f0f7c5abg5ha5ea323a",
+      };
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.getOneUserById(configActionContext(commit), userId);
+
+      expect(commit).toHaveBeenCalledWith("loadOneUserById", data);
     });
   });
 });
