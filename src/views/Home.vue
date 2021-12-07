@@ -13,6 +13,7 @@
         <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" :userId="teacher.id" />
       </li>
     </ul>
+    <ContactosOnMainPage />
   </div>
 </template>
 
@@ -23,10 +24,11 @@ import PorqueNosotrosVue from "@/components/PorqueNosotros.vue";
 import TeacherCard from "@/components/TeacherCard.vue";
 import CursosOnMainPage from "@/components/CursosOnMainPage.vue";
 import SobreElCentroOnMainPage from "@/components/SobreElCenroOnMainPage.vue";
+import ContactosOnMainPage from "@/components/ContactosOnMainPage.vue";
 
 export default defineComponent({
   name: "Home",
-  components: { PorqueNosotrosVue, TeacherCard, CursosOnMainPage, SobreElCentroOnMainPage },
+  components: { PorqueNosotrosVue, TeacherCard, CursosOnMainPage, SobreElCentroOnMainPage, ContactosOnMainPage },
   computed: {
     ...mapState(["teachers"]),
   },
