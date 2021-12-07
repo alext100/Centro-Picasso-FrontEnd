@@ -37,7 +37,7 @@ describe("Given a GroupMembers component ", () => {
         },
         stubs: ["router-link", "router-view"],
       });
-      const htmlSubstyring = '<div class="container">';
+      const htmlSubstyring = '<h2 class="mb-4">Miembros del grupo:</h2>';
 
       expect(wrapper.html()).toContain(htmlSubstyring);
     });
