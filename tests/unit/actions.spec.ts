@@ -412,4 +412,36 @@ describe("Given an actions from store", () => {
       expect(commit).toHaveBeenCalledWith("loadAllUsers", data);
     });
   });
+
+  describe("When the action addGroupToAnyUser is invoked with userId and userErrorId", () => {
+    test("Then it should invoke dispatch with getUserById and userId", async () => {
+      const data = {};
+      state.loadedUsersFromGroup = [
+        {
+          username: "maria",
+          password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+          email: "maria@asf",
+          firstname: "María",
+          lastname: "Fernandez",
+          adminAccess: false,
+          professorAccess: true,
+          studentAccess: false,
+          groups: [],
+          studentErrors: [],
+          image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+          id: "61a7c88f0f7c5abg5ha5ea323a",
+        },
+      ];
+
+      mockedAxios.patch.mockResolvedValue({
+        data,
+      });
+      const groupId = "61a7c88f0f7c5abg5ha5ea334e";
+      const userId = "61a7c88f0f7c5abg5ha5ew523a";
+
+      await actions.addGroupToAnyUser(configActionContextDispatch(dispatch), { userId, id: groupId });
+
+      expect(dispatch).toHaveBeenCalledWith("getUserById", userId);
+    });
+  });
 });
