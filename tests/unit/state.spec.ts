@@ -36,6 +36,7 @@ describe("Given a state", () => {
         loadedUsersFromGroup: [],
         currentStudentErrors: [],
         loadedOneUserById: {},
+        allUsers: [],
       };
 
       expect(stateToTest).toStrictEqual(state);

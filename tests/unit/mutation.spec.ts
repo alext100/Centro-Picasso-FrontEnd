@@ -524,5 +524,27 @@ describe("Given a store mutations", () => {
         expect(state.loadedUsersFromGroup).toStrictEqual(updatedUsers);
       });
     });
+
+    describe("When addUserError mutation receives a state and an array with UserErrors", () => {
+      test("Then currentStudentErrors in state should be equal a UserErrors", () => {
+        mockedState = state;
+        const userErrors = [
+          {
+            errorType: "fallo",
+            errorMessage: "message",
+            errorComment: "Comment",
+          },
+          {
+            errorType: "pronunciacion",
+            errorMessage: "some message",
+            errorComment: "Comment",
+          },
+        ];
+
+        mutations.addUserError(mockedState, userErrors);
+
+        expect(state.currentStudentErrors).toStrictEqual(userErrors);
+      });
+    });
   });
 });
