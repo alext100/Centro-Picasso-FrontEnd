@@ -62,7 +62,10 @@ export default defineComponent({
         messages: [...state.currentGroup.messages, { message: this.message, time: new Date() }],
         id: state.currentGroup.id,
       };
-      await this.updateGroup(groupToUpdate);
+      if (this.message !== "") {
+        await this.updateGroup(groupToUpdate);
+      }
+      this.message = "";
     },
   },
 });
