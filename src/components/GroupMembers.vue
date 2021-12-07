@@ -35,11 +35,16 @@ export default defineComponent({
     ...mapActions(["getGroupById", "getUserById", "deleteLoadedUsers"]),
   },
 
+  // eslint-disable-next-line consistent-return
   async mounted() {
-    await this.getGroupById(this.$route.params.id);
-    const groupMembers = this.currentGroup.members;
-    await groupMembers.forEach((member: UserModel) => this.getUserById(member));
-    this.deleteLoadedUsers();
+    try {
+      await this.getGroupById(this.$route.params.id);
+      const groupMembers = this.currentGroup.members;
+      await groupMembers.forEach((member: UserModel) => this.getUserById(member));
+      this.deleteLoadedUsers();
+    } catch {
+      return false;
+    }
   },
 });
 </script>
