@@ -24,7 +24,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="toast header_navbar-collapse align-self-md-end collapse navbar-collapse" id="navbarNav">
+      <div class="header_navbar-collapse align-self-md-end collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav toast-header">
           <li class="nav-item">
             <router-link class="nav-link m-2" to="/">Inicio</router-link>
