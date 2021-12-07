@@ -2,7 +2,7 @@ module.exports = {
   globals: {
     "vue-jest": {
       compilerOptions: {
-        isCustomElement: (tag) => tag.startsWith("b-form"),
+        isCustomElement: (tag) => tag.startsWith("b-"),
       },
     },
   },

@@ -524,5 +524,107 @@ describe("Given a store mutations", () => {
         expect(state.loadedUsersFromGroup).toStrictEqual(updatedUsers);
       });
     });
+
+    describe("When addUserError mutation receives a state and an array with UserErrors", () => {
+      test("Then currentStudentErrors in state should be equal a UserErrors", () => {
+        mockedState = state;
+        const userErrors = [
+          {
+            errorType: "fallo",
+            errorMessage: "message",
+            errorComment: "Comment",
+          },
+          {
+            errorType: "pronunciacion",
+            errorMessage: "some message",
+            errorComment: "Comment",
+          },
+        ];
+
+        mutations.addUserError(mockedState, userErrors);
+
+        expect(state.currentStudentErrors).toStrictEqual(userErrors);
+      });
+    });
+
+    describe("When loadOneUserById mutation receives a state and a user", () => {
+      test("Then loadedOneUserById in state should be equal a user", () => {
+        mockedState = state;
+
+        const user = {
+          username: "pablo",
+          password: "$2b$10$vqJx/Vjrq75ygzySQJNEUu.Y3.t6aLYJ2mp2mbUmqM/OyEiZizw4S",
+          email: "pablo@asf",
+          firstname: "Pablo",
+          lastname: "Lopez",
+          adminAccess: false,
+          professorAccess: true,
+          studentAccess: false,
+          groups: [],
+          studentErrors: [],
+          id: "61a7c85e0f7c5abd5aea3238",
+          image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+        };
+
+        mutations.loadOneUserById(mockedState, user);
+
+        expect(state.loadedOneUserById).toStrictEqual(user);
+      });
+    });
+
+    describe("When loadAllUsers mutation receives a state and users", () => {
+      test("Then loadedOneUserById in state should be equal a user", () => {
+        mockedState = state;
+
+        const users = [
+          {
+            username: "maria",
+            password: "$2b$108yc/ddtCyl.uMK212RzF.0hrSzaJpBNoJO",
+            email: "maria@asf",
+            firstname: "María",
+            lastname: "Fernandez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c88f0f7c5abd5aea323a",
+            image: "http://fr.shopping.ran.com/photo/14L.jpg",
+          },
+          {
+            username: "manuel",
+            password: "$2b$10$jxatXsPDMO.Ie1kmrJZ4s8PklFr0XUGiRp2YG",
+            email: "manuel@asf",
+            firstname: "Manuel",
+            lastname: "Gomez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c8aa0f7c5abd5aea323c",
+            image: "https://fr.shopping.rakuten.com/photo/148_L.jpg",
+          },
+          {
+            username: "pablo",
+            password: "$2b$10$vqJx/Vjrq75ygzySQJNEUu.Y3.t6aLYJ2mp2mbUmqM/OyEiZizw4S",
+            email: "pablo@asf",
+            firstname: "Pablo",
+            lastname: "Lopez",
+            adminAccess: false,
+            professorAccess: true,
+            studentAccess: false,
+            groups: [],
+            studentErrors: [],
+            id: "61a7c85e0f7c5abd5aea3238",
+            image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+          },
+        ];
+
+        mutations.loadAllUsers(mockedState, users);
+
+        expect(state.allUsers).toStrictEqual(users);
+      });
+    });
   });
 });
