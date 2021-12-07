@@ -2,7 +2,7 @@
 import axios from "axios";
 import { ActionContext } from "vuex";
 import jwtDecode from "jwt-decode";
-import { Errors, Groups, State, UserLoginData, UserWithToken } from "@/types/interfaces";
+import { Errors, Groups, State, UserLoginData, UserModel, UserWithToken } from "@/types/interfaces";
 import state from "./state";
 
 const actions: any = {
@@ -182,6 +182,19 @@ const actions: any = {
   ): Promise<void> {
     const { data } = await axios.patch(`${process.env.VUE_APP_URL}/user/delete-error-from-user/${userId}`, { id: userErrorId });
     dispatch("getUserErrorsById", data);
+  },
+
+  async getAllUsersFromApi({ commit }: ActionContext<State, State>): Promise<void> {
+    const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-all`);
+    commit("loadAllUsers", data);
+  },
+
+  async addGroupToAnyUser({ dispatch }: ActionContext<State, State>, { userId, groupId }: { userId: string; groupId: string }): Promise<void> {
+    const idOfUser = (user: UserModel) => user.id === userId;
+    if (state.loadedUsersFromGroup.find(idOfUser) === undefined) {
+      await axios.patch(`${process.env.VUE_APP_URL}/group/add-group-to-any-user/${userId}`, { id: groupId });
+    }
+    dispatch("getUserById", userId);
   },
 };
 export default actions;
