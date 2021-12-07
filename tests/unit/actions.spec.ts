@@ -444,4 +444,18 @@ describe("Given an actions from store", () => {
       expect(dispatch).toHaveBeenCalledWith("getUserById", userId);
     });
   });
+
+  describe("When the action getUserFromLocalStorage is invoked", () => {
+    test("Then it should invoke dispatch with 'login', username and password", () => {
+      const localStorageUser = {
+        username: "alex",
+        password: "aaaa",
+      };
+      JSON.parse = jest.fn().mockImplementationOnce(() => localStorageUser);
+
+      actions.getUserFromLocalStorage(configActionContextDispatch(dispatch));
+
+      expect(dispatch).toHaveBeenCalledWith("login", { username: localStorageUser.username, password: localStorageUser.password });
+    });
+  });
 });
