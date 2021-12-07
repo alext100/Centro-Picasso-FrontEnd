@@ -546,5 +546,30 @@ describe("Given a store mutations", () => {
         expect(state.currentStudentErrors).toStrictEqual(userErrors);
       });
     });
+
+    describe("When loadOneUserById mutation receives a state and a user", () => {
+      test("Then loadedOneUserById in state should be equal a user", () => {
+        mockedState = state;
+
+        const user = {
+          username: "pablo",
+          password: "$2b$10$vqJx/Vjrq75ygzySQJNEUu.Y3.t6aLYJ2mp2mbUmqM/OyEiZizw4S",
+          email: "pablo@asf",
+          firstname: "Pablo",
+          lastname: "Lopez",
+          adminAccess: false,
+          professorAccess: true,
+          studentAccess: false,
+          groups: [],
+          studentErrors: [],
+          id: "61a7c85e0f7c5abd5aea3238",
+          image: "https://fr.shopping.rakuten.com/photo/1444459108_L.jpg",
+        };
+
+        mutations.loadOneUserById(mockedState, user);
+
+        expect(state.loadedOneUserById).toStrictEqual(user);
+      });
+    });
   });
 });
