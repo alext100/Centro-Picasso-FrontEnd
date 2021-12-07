@@ -70,6 +70,7 @@ interface State {
   loadedUsersFromGroup: Array<UserModel>;
   currentStudentErrors: Array<Errors>;
   loadedOneUserById: UserModel;
+  allUsers: Array<UserModel>;
 }
 interface UserLoginData {
   username: string;
