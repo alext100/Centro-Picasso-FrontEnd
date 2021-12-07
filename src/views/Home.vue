@@ -3,6 +3,7 @@
     <p class="home_text">Nuevos grupos</p>
   </div>
   <PorqueNosotrosVue />
+  <CursosOnMainPage />
   <div class="container">
     <h2 class="d-flex justify-content-around m-4">Profesores</h2>
     <ul class="list-group-item-success">
@@ -18,10 +19,11 @@ import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import PorqueNosotrosVue from "@/components/PorqueNosotros.vue";
 import TeacherCard from "@/components/TeacherCard.vue";
+import CursosOnMainPage from "@/components/CursosOnMainPage.vue";
 
 export default defineComponent({
   name: "Home",
-  components: { PorqueNosotrosVue, TeacherCard },
+  components: { PorqueNosotrosVue, TeacherCard, CursosOnMainPage },
   computed: {
     ...mapState(["teachers"]),
   },
@@ -42,7 +44,7 @@ button.home_button-more-info {
   width: 150px;
 }
 .home {
-  height: 300px;
+  height: 200px;
   background-color: #ffad00;
 }
 .home_text {
