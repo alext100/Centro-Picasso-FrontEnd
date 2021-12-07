@@ -385,4 +385,31 @@ describe("Given an actions from store", () => {
       expect(dispatch).toHaveBeenCalledWith("getUserErrorsById", data);
     });
   });
+
+  describe("When the action getAllUsersFromApi is invoked", () => {
+    test("Then it should invoke commit with loadAllUsers and received data", async () => {
+      const userId = "61a7c88f0f7c5abg5ha5ea323a";
+      const data = {
+        username: "maria",
+        password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+        email: "maria@asf",
+        firstname: "María",
+        lastname: "Fernandez",
+        adminAccess: false,
+        professorAccess: true,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+        id: "61a7c88f0f7c5abg5ha5ea323a",
+      };
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.getAllUsersFromApi(configActionContext(commit), userId);
+
+      expect(commit).toHaveBeenCalledWith("loadAllUsers", data);
+    });
+  });
 });
