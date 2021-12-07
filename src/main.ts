@@ -1,5 +1,4 @@
 import { createApp } from "vue";
-import "vue-transitions-css";
 import BootstrapVue3 from "bootstrap-vue-3";
 import DKToast from "vue-dk-toast";
 import App from "./App.vue";

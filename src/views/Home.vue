@@ -3,15 +3,34 @@
     <p class="home_text">Nuevos grupos</p>
   </div>
   <PorqueNosotrosVue />
+  <div class="container">
+    <h2 class="d-flex justify-content-around m-4">Profesores</h2>
+    <ul class="list-group-item-success">
+      <li v-for="teacher in teachers || []" :key="teacher" class="container__list">
+        <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" :userId="teacher.id" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapActions, mapState } from "vuex";
 import PorqueNosotrosVue from "@/components/PorqueNosotros.vue";
+import TeacherCard from "@/components/TeacherCard.vue";
 
 export default defineComponent({
   name: "Home",
-  components: { PorqueNosotrosVue },
+  components: { PorqueNosotrosVue, TeacherCard },
+  computed: {
+    ...mapState(["teachers"]),
+  },
+  methods: {
+    ...mapActions(["getTeachersFromApi"]),
+  },
+  mounted() {
+    this.getTeachersFromApi();
+  },
 });
 </script>
 
