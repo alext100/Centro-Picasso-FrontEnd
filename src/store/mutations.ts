@@ -76,6 +76,10 @@ const mutations = {
   loadOneUserById(state: State, payload: UserModel) {
     state.loadedOneUserById = payload;
   },
+
+  loadAllUsers(state: State, payload: Array<UserModel>) {
+    state.allUsers = payload;
+  },
 };
 
 export default mutations;
