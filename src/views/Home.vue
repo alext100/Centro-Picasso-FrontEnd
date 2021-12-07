@@ -1,16 +1,17 @@
 <template>
   <div class="home align-items-center d-flex flex-column justify-content-center">
     <p class="home_text">Nuevos grupos</p>
-    <button class="home_button-more-info btn mt-2">Más info</button>
   </div>
+  <PorqueNosotrosVue />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import PorqueNosotrosVue from "@/components/PorqueNosotros.vue";
 
 export default defineComponent({
   name: "Home",
-  components: {},
+  components: { PorqueNosotrosVue },
 });
 </script>
 
