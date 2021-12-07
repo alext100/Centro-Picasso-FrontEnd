@@ -1,11 +1,11 @@
 import axios from "axios";
 import { Commit, Dispatch } from "vuex";
-import jwtDecode from "jwt-decode";
 import actions from "@/store/actions";
 import state from "../mockedState";
 import { configActionContext, configActionContextDispatch } from "../test-utils";
 
 jest.mock("axios");
+jest.mock("jwt-decode", () => () => ({}));
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 const commit = jest.fn() as jest.MockedFunction<Commit>;
 const dispatch = jest.fn() as jest.MockedFunction<Dispatch>;
@@ -260,41 +260,202 @@ describe("Given an actions from store", () => {
     });
   });
 
-  /*   describe("When the action login is executed successfully", () => {
+  describe("When the action login is executed successfully", () => {
     test("Login should call dispatch", async () => {
-      // const userData = {} as UserLoginData;
-      const mockedState = state;
-      const userData = { username: mockedState.user.username, password: mockedState.user.password, data: { token: mockedState.token } };
-      const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwiaWQiOiI2MWE3Yzg4ZjBmN2M1YWJkNWFlYTMyM2EiLCJpYXQiOjE2Mzg2MzUyODAsImV4cCI6MTYzODg5NDQ4MH0.YeLWuXTKg_GloPhLd6KcXIMxjdwCK6RzorFoNL4_TO4`;
-      mockedAxios.post.mockResolvedValue({
-        data: {
+      const data = {
+        token: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwiaWQiOiI2MWE3Yzg4ZjBmN2M1YWJkNWFlYTMyM2EiLCJpYXQiOjE2Mzg2MzUyODAsImV4cCI6MTYzODg5NDQ4MH0.YeLWuXTKg_GloPhLd6KcXIMxjdwCK6RzorFoNL4_TO4`,
+      };
+
+      mockedAxios.post.mockResolvedValue({ data });
+      const user = "a3ess3fq435251524354qwe";
+
+      await actions.login(configActionContextDispatch(dispatch), { user, data });
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+
+  describe("When the action addErrorToUser is invoked with userId and userError", () => {
+    test("Then it should invoke dispatch with data.id", async () => {
+      const data = {
+        username: "maria",
+        password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+        email: "maria@asf",
+        firstname: "María",
+        lastname: "Fernandez",
+        adminAccess: false,
+        professorAccess: true,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+        id: "61a7c88f0f7c5abg5ha5ea323a",
+      };
+
+      mockedAxios.patch.mockResolvedValue({
+        data,
+      });
+      const userError = {};
+
+      await actions.addErrorToUser(configActionContextDispatch(dispatch), { userId: "61a7c88f0f7c5abg5ha5ea323a", userError });
+
+      expect(dispatch).toHaveBeenCalledWith("getUserErrorsById", data.id);
+    });
+  });
+
+  describe("When the action getUserErrorsById is invoked", () => {
+    test("Then it should invoke commit with addUserError and received data.studentErrors", async () => {
+      const userId = "61a7c88f0f7c5abg5ha5ea323a";
+      const data = {
+        username: "maria",
+        password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+        email: "maria@asf",
+        firstname: "María",
+        lastname: "Fernandez",
+        adminAccess: false,
+        professorAccess: true,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+        id: "61a7c88f0f7c5abg5ha5ea323a",
+      };
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.getUserErrorsById(configActionContext(commit), userId);
+
+      expect(commit).toHaveBeenCalledWith("addUserError", data.studentErrors);
+    });
+  });
+
+  describe("When the action getOneUserById is invoked", () => {
+    test("Then it should invoke commit with loadOneUserById and received data", async () => {
+      const userId = "61a7c88f0f7c5abg5ha5ea323a";
+      const data = {
+        username: "maria",
+        password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+        email: "maria@asf",
+        firstname: "María",
+        lastname: "Fernandez",
+        adminAccess: false,
+        professorAccess: true,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+        id: "61a7c88f0f7c5abg5ha5ea323a",
+      };
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.getOneUserById(configActionContext(commit), userId);
+
+      expect(commit).toHaveBeenCalledWith("loadOneUserById", data);
+    });
+  });
+
+  describe("When the action deleteErrorFromUser is invoked with userId and userErrorId", () => {
+    test("Then it should invoke dispatch with getUserErrorsById and received data", async () => {
+      const data = {
+        username: "maria",
+        password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+        email: "maria@asf",
+        firstname: "María",
+        lastname: "Fernandez",
+        adminAccess: false,
+        professorAccess: true,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+        id: "61a7c88f0f7c5abg5ha5ea323a",
+      };
+
+      mockedAxios.patch.mockResolvedValue({
+        data,
+      });
+      const userErrorId = "61a7c88f0f7c5abg5ha5ea323a";
+      const userId = "61a7c88f0f7c5abg5ha5ea323a";
+
+      await actions.deleteErrorFromUser(configActionContextDispatch(dispatch), { userId, userErrorId });
+
+      expect(dispatch).toHaveBeenCalledWith("getUserErrorsById", data);
+    });
+  });
+
+  describe("When the action getAllUsersFromApi is invoked", () => {
+    test("Then it should invoke commit with loadAllUsers and received data", async () => {
+      const userId = "61a7c88f0f7c5abg5ha5ea323a";
+      const data = {
+        username: "maria",
+        password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
+        email: "maria@asf",
+        firstname: "María",
+        lastname: "Fernandez",
+        adminAccess: false,
+        professorAccess: true,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+        id: "61a7c88f0f7c5abg5ha5ea323a",
+      };
+      mockedAxios.get.mockResolvedValue({
+        data,
+      });
+
+      await actions.getAllUsersFromApi(configActionContext(commit), userId);
+
+      expect(commit).toHaveBeenCalledWith("loadAllUsers", data);
+    });
+  });
+
+  describe("When the action addGroupToAnyUser is invoked with userId and userErrorId", () => {
+    test("Then it should invoke dispatch with getUserById and userId", async () => {
+      const data = {};
+      state.loadedUsersFromGroup = [
+        {
           username: "maria",
-          password: "$2b$10$gtoDQ8yc/ddtCy4ttyeel.uMK212RzF.0hrSiL20Bou1zaJpBNoJO",
+          password: "$2b$10$gtoDQ8yc/ddtCy45.uMK52RzF.520Bou1zaJpBNoJO",
           email: "maria@asf",
           firstname: "María",
           lastname: "Fernandez",
           adminAccess: false,
           professorAccess: true,
           studentAccess: false,
-          groups: [
-            "61a0d8cb726c02fd1ef1f539",
-            "619f6039715b49f29a18d374",
-            "61a0d8d2726c02fd1ef1f53b",
-            "61ac2bb0c9da15a9378fb20d",
-            "61ac2ba9c9da15a9378fb20b",
-            "61ac2b8dc9da15a9378fb209",
-            "61ac2b80c9da15a9378fb207",
-          ],
+          groups: [],
           studentErrors: [],
-          image: "https://i.ebayimg.com/thumbs/images/g/OtcAAOSwzbVbAwFX/s-l300.jpg",
-          id: "61a7c88f0f7c5abd5aea323a",
+          image: "https://i.ebayimg.com/thumbs/images/g/VbAwFX/s-l300.jpg",
+          id: "61a7c88f0f7c5abg5ha5ea323a",
         },
+      ];
+
+      mockedAxios.patch.mockResolvedValue({
+        data,
       });
-      const user = jwtDecode(token);
+      const groupId = "61a7c88f0f7c5abg5ha5ea334e";
+      const userId = "61a7c88f0f7c5abg5ha5ew523a";
 
-      await actions.login(configActionContextDispatch(dispatch), { user, token });
+      await actions.addGroupToAnyUser(configActionContextDispatch(dispatch), { userId, id: groupId });
 
-      expect(dispatch).toHaveBeenCalledWith("userLogedFromApi");
+      expect(dispatch).toHaveBeenCalledWith("getUserById", userId);
     });
-  }); */
+  });
+
+  describe("When the action getUserFromLocalStorage is invoked", () => {
+    test("Then it should invoke dispatch with 'login', username and password", () => {
+      const localStorageUser = {
+        username: "alex",
+        password: "aaaa",
+      };
+      JSON.parse = jest.fn().mockImplementationOnce(() => localStorageUser);
+
+      actions.getUserFromLocalStorage(configActionContextDispatch(dispatch));
+
+      expect(dispatch).toHaveBeenCalledWith("login", { username: localStorageUser.username, password: localStorageUser.password });
+    });
+  });
 });

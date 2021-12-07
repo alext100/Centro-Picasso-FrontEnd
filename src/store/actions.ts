@@ -145,15 +145,6 @@ const actions: any = {
     dispatch("getUserErrorsById", data.id);
   },
 
-  async getAllCurrentUserErrors({ commit }: ActionContext<State, State>): Promise<void> {
-    const { data } = await axios({
-      method: "GET",
-      url: `${process.env.VUE_APP_URL}/error/get-all`,
-      headers: { Authorization: `Bearer ${state.currentUser.token}` },
-    });
-    commit("addUserError", data.errors);
-  },
-
   async getUserErrorsById({ commit }: ActionContext<State, State>, userId: string): Promise<void> {
     const { data } = await axios.get(`${process.env.VUE_APP_URL}/user/get-all-user-errors/${userId}`);
     commit("addUserError", data.studentErrors);
