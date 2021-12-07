@@ -39,7 +39,7 @@
             <router-link class="nav-link m-2" to="/prices">Precios</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link m-2" to="/blog">Blog</router-link>
+            <a class="nav-link m-2" href="https://www.instagram.com/centropicassorusia/">Blog</a>
           </li>
           <li class="nav-item">
             <router-link class="nav-link m-2" to="/contacts">Contactos</router-link>
