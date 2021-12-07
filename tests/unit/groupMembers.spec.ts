@@ -6,7 +6,7 @@ import state from "../mockedState";
 
 describe("Given a GroupMembers component ", () => {
   describe("When it renders", () => {
-    test("Then it should renders html substring and inputs", () => {
+    test("Then it should renders html substring", () => {
       const store = createStore({
         state() {
           state.currentGroup = {
