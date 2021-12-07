@@ -1,7 +1,14 @@
 <template>
   <div class="container-sm create-form d-flex flex-column mb-5 w-75">
     <b-card class="mb-1">
-      <b-form @change="checkForm" autoComplete="off" action v-on:keydown.enter.prevent="handleCreate" data-test="createBForm">
+      <b-form
+        @change="checkForm"
+        @submit.prevent="handleCreate"
+        autoComplete="off"
+        action
+        v-on:keydown.enter.prevent="handleCreate"
+        data-test="createBForm"
+      >
         <div>
           <b-form-group
             id="username"
@@ -171,9 +178,7 @@ export default defineComponent({
 
     const email = ref("");
     const floatingStateEmail = computed(() => email.value.length >= 4);
-    const floatingInvalidFeedbackEmail = computed(() =>
-      email.value.length > 0 ? "Ingrese al menos 4 caracteres" : "Por favor ingrese algo"
-    );
+    const floatingInvalidFeedbackEmail = computed(() => (email.value.length > 0 ? "Ingrese al menos 4 caracteres" : "Por favor ingrese algo"));
 
     const image = ref("");
     const floatingStateImage = computed(() => image.value.length >= 1);
@@ -231,10 +236,7 @@ export default defineComponent({
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
-          image:
-            this.image === ""
-              ? "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
-              : this.image,
+          image: this.image === "" ? "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" : this.image,
           professorAccess: this.switchChecked,
         };
         try {
