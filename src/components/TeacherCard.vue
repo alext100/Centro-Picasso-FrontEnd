@@ -8,7 +8,7 @@
         <b-col md="6">
           <b-card-body :title="firstname">
             <b-card-text>{{ firstname }} {{ lastname }}</b-card-text>
-            <b-button pill class="b-card__button" @click="handleDelete(userId)">Borrar</b-button>
+            <b-button v-if="isAdmin" pill class="b-card__button" @click="handleDelete(userId)">Borrar</b-button>
           </b-card-body>
         </b-col>
       </b-row>
@@ -18,11 +18,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default defineComponent({
   name: "TeacherCard",
   props: ["firstname", "lastname", "image", "userId"],
+  computed: { ...mapState(["isAdmin"]) },
   methods: {
     ...mapActions(["deleteTeacher"]),
     async handleDelete(userId: string) {
