@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="m-3">¡Hola {{ currentUser.firstName }}! Estás en el grupo {{ currentGroup.groupname }}</h1>
+    <h1 class="m-3">¡Hola {{ loadedOneUserById.firstname }}! Estás en el grupo {{ currentGroup.groupname }}</h1>
     <b-card-group>
       <b-card>
         <b-tabs active-nav-item-class="m-2 h-3 list-group-item-success" content-class="mt-3" justified>
@@ -25,13 +25,14 @@ export default defineComponent({
   },
   name: "StudentBoard",
   computed: {
-    ...mapState(["currentUser", "currentGroup"]),
+    ...mapState(["currentUser", "currentGroup", "loadedOneUserById"]),
   },
   methods: {
-    ...mapActions(["getGroupById"]),
+    ...mapActions(["getGroupById", "getOneUserById"]),
   },
   mounted() {
     this.getGroupById(this.currentUser.groups[0]);
+    this.getOneUserById(this.$route.params.id);
   },
 });
 </script>
