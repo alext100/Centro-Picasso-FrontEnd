@@ -8,7 +8,7 @@
         <b-col md="6">
           <b-card-body :title="firstname">
             <b-card-text>{{ firstname }} {{ lastname }}</b-card-text>
-            <b-button v-if="isAdmin" pill class="b-card__button" @click="handleDelete(userId)">Borrar</b-button>
+            <b-button v-if="isAdmin" pill class="b-card__button" @click="handleDelete(userId)" data-test="delete">Borrar</b-button>
           </b-card-body>
         </b-col>
       </b-row>
@@ -26,7 +26,7 @@ export default defineComponent({
   computed: { ...mapState(["isAdmin"]) },
   methods: {
     ...mapActions(["deleteTeacher"]),
-    async handleDelete(userId: string) {
+    handleDelete(userId: string) {
       this.deleteTeacher(userId);
     },
   },
