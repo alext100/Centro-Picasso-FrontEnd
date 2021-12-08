@@ -1,7 +1,7 @@
 <template>
   <div class="align-items-center container d-flex flex-column">
     <transition name="slide-fade-header" appear>
-      <h2 class="d-flex justify-content-around m-3">Porque nosotros?</h2>
+      <h2 class="d-flex justify-content-around m-3">¿Por qué nosotros?</h2>
     </transition>
     <transition name="slide-fade-header" appear>
       <p class="d-flex justify-content-around">

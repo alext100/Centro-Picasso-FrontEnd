@@ -19,8 +19,8 @@
         <b-form-group label-cols-lg="3" label="Teléfono" label-for="input-default">
           <b-form-input placeholder="Teléfono" id="input-default"></b-form-input>
         </b-form-group>
-        <b-form-group label-cols-lg="3" label="email" label-for="input-default">
-          <b-form-input placeholder="email" id="input-default"></b-form-input>
+        <b-form-group label-cols-lg="3" label="Email" label-for="input-default">
+          <b-form-input placeholder="Email" id="input-default"></b-form-input>
         </b-form-group>
         <b-form-group label-cols-lg="3" label="Tema" label-for="input-default">
           <b-form-input placeholder="Tema" id="input-default"></b-form-input>
