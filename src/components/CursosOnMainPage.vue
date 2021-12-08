@@ -10,27 +10,45 @@
         class="mb-2 card-body"
         border-variant="white"
         align="center"
+        title-tag="h3"
       >
         <b-card-img
           alt="Imagen cursos grupales"
           class="card-body--image"
-          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/grupo.png?alt=media&token=4d7bc27c-6514-44a0-b77d-16ed8ec01fce"
+          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/grupo.webp?alt=media&token=fe25304f-effa-4d28-9ae4-57eba0b3b214"
         ></b-card-img>
       </b-card>
-      <b-card title="Curso individual" tag="article" style="max-width: 20rem" class="mb-2 card-body" border-variant="white" align="center">
+      <b-card
+        title="Curso individual"
+        tag="article"
+        style="max-width: 20rem"
+        class="mb-2 card-body"
+        border-variant="white"
+        align="center"
+        title-tag="h3"
+      >
         <b-card-img
           alt="Imagen curso individual"
           class="card-body--image"
-          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/indiv.png?alt=media&token=2ae71dc5-8b09-4622-9b5e-283e05ebd61d"
+          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/indiv.webp?alt=media&token=3b37f3a3-9e93-4d1c-9ca0-0d3f77bfcad6"
         ></b-card-img>
       </b-card>
     </b-card-group>
     <b-card-group class="mr-5">
-      <b-card title="Clubs" img-top tag="article" style="max-width: 20rem" class="mb-2 card-body" border-variant="white" align="center">
+      <b-card
+        title="Clubs"
+        img-top
+        tag="article"
+        style="max-width: 20rem"
+        class="mb-2 card-body"
+        border-variant="white"
+        align="center"
+        title-tag="h3"
+      >
         <b-card-img
           alt="Imagen clubs"
           class="card-body--image"
-          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/convers.png?alt=media&token=d0964c17-ea95-4cb8-9ed5-2187d326cc5f"
+          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/convers.webp?alt=media&token=4a0be0fd-1d8e-4800-9795-608fbd638b70"
         >
         </b-card-img>
       </b-card>
