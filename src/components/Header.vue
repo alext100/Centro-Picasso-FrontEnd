@@ -51,7 +51,9 @@
             <router-link class="nav-link m-2" to="/login">{{ "Login" }}</router-link>
           </li>
           <li v-if="isUserAuthenticated" class="nav-item">
-            <router-link class="nav-link m-2" to="/"><button class="logout-button" @click="handleLogout()">Logout</button></router-link>
+            <router-link class="nav-link m-2" to="/"
+              ><button class="logout-button" @click="handleLogout()" data-test="logout">Logout</button></router-link
+            >
           </li>
           <li v-if="isAdmin" class="nav-item">
             <router-link class="nav-link m-2" to="/admin">{{ "Admin" }}</router-link>
