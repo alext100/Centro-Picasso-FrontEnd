@@ -11,7 +11,7 @@
     <b-card-group>
       <transition name="slide-fade" appear>
         <b-card border-variant="light" class="m-4 porque-nosotros-card" style="min-width: 300px">
-          <b-card-header class="text-center" header-class="porque-nosotros-card-header" border-variant="light" header-bg-variant="transparent"
+          <b-card-header class="text-center" header-class="porque-nosotros-card-header" border-variant="white" header-bg-variant="transparent"
             >Profesores</b-card-header
           >
           <b-card-text

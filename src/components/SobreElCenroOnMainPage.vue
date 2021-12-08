@@ -25,7 +25,6 @@ export default defineComponent({
 .card-body {
   min-width: 450px;
   font-size: 20px;
-  background-color: transparent;
   font-family: "Tenor-sans", sans-serif;
   text-align: justify !important;
   background-color: transparent;
