@@ -184,8 +184,8 @@ const actions: any = {
     const idOfUser = (user: UserModel) => user.id === userId;
     if (state.loadedUsersFromGroup.find(idOfUser) === undefined) {
       await axios.patch(`${process.env.VUE_APP_URL}/group/add-group-to-any-user/${userId}`, { id: groupId });
+      dispatch("getUserById", userId);
     }
-    dispatch("getUserById", userId);
   },
 };
 export default actions;
