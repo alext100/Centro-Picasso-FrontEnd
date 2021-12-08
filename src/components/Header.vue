@@ -2,7 +2,7 @@
   <nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light p-3 sticky-md-top">
     <div class="header_top offcanvas-body">
       <div class="align-items-md-center offcanvas-body mr-5">
-        <img class="header_big-image align-self-md-start ml-2 mr-5" src="../../public/Centro-Picasso-200x91.png" alt="logo" />
+        <img class="header_big-image align-self-md-start ml-2 mr-5" src="../../public/Centro-Picasso-200x91.webp" alt="logo" />
         <p class="header_text-school align-self-md-center">ESCUELA DE LENGUA ESPAÑOLA</p>
       </div>
       <div class="align-items-md-center d-flex mb-3 ml-5">
@@ -12,7 +12,7 @@
     </div>
     <div class="header_rule table-bordered"></div>
     <div class="header_bottom">
-      <img class="header_small-image" src="../../public/Centro-Picasso-120x55.png" alt="logo" />
+      <img class="header_small-image" src="../../public/Centro-Picasso-120x55.webp" alt="logo" />
       <button
         class="header_toggle-button navbar-toggler"
         type="button"

@@ -349,5 +349,8 @@ export default defineComponent({
 
 .price-table__button-cambiar {
   width: 90px;
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <b-card>
-    <b-card no-body class="overflow-hidden" style="max-width: 450px">
+    <b-card no-body class="overflow-hidden" style="max-width: 450px" title-tag="h3">
       <b-row no-gutters>
         <b-col md="5">
           <b-card-img :src="image" alt="Teacher image" class="rounded-0"></b-card-img>
         </b-col>
         <b-col md="6">
-          <b-card-body :title="firstname">
+          <b-card-body :title="firstname" title-tag="h3">
             <b-card-text>{{ firstname }} {{ lastname }}</b-card-text>
             <b-button v-if="isAdmin" pill class="b-card__button" @click="handleDelete(userId)" data-test="delete">Borrar</b-button>
           </b-card-body>

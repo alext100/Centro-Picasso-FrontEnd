@@ -10,24 +10,46 @@
         class="mb-2 card-body"
         border-variant="white"
         align="center"
+        title-tag="h3"
       >
         <b-card-img
-          alt="Image"
+          alt="Imagen cursos grupales"
           class="card-body--image"
-          src="http://centropicasso.ru/wp-content/uploads/2019/07/%D0%B3%D1%80%D1%83%D0%BF%D0%BF.png"
+          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/grupo.webp?alt=media&token=fe25304f-effa-4d28-9ae4-57eba0b3b214"
         ></b-card-img>
       </b-card>
-      <b-card title="Curso individual" tag="article" style="max-width: 20rem" class="mb-2 card-body" border-variant="white" align="center">
+      <b-card
+        title="Curso individual"
+        tag="article"
+        style="max-width: 20rem"
+        class="mb-2 card-body"
+        border-variant="white"
+        align="center"
+        title-tag="h3"
+      >
         <b-card-img
-          alt="Image"
+          alt="Imagen curso individual"
           class="card-body--image"
-          src="http://centropicasso.ru/wp-content/uploads/2019/07/%D0%B8%D0%BD%D0%B4.png"
+          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/indiv.webp?alt=media&token=3b37f3a3-9e93-4d1c-9ca0-0d3f77bfcad6"
         ></b-card-img>
       </b-card>
     </b-card-group>
     <b-card-group class="mr-5">
-      <b-card title="Clubs" img-top tag="article" style="max-width: 20rem" class="mb-2 card-body" border-variant="white" align="center">
-        <b-card-img alt="Image" class="card-body--image" src="http://centropicasso.ru/wp-content/uploads/2019/07/%D1%80%D0%B0%D0%B7%D0%B3.png">
+      <b-card
+        title="Clubs"
+        img-top
+        tag="article"
+        style="max-width: 20rem"
+        class="mb-2 card-body"
+        border-variant="white"
+        align="center"
+        title-tag="h3"
+      >
+        <b-card-img
+          alt="Imagen clubs"
+          class="card-body--image"
+          src="https://firebasestorage.googleapis.com/v0/b/qqqqqqqqqqqq-f57b0.appspot.com/o/convers.webp?alt=media&token=4a0be0fd-1d8e-4800-9795-608fbd638b70"
+        >
         </b-card-img>
       </b-card>
     </b-card-group>
@@ -36,16 +58,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapActions, mapState } from "vuex";
 
 export default defineComponent({
   name: "CursosOnMainPage",
-  computed: {
-    ...mapState([]),
-  },
-  methods: {
-    ...mapActions([]),
-  },
 });
 </script>
 
