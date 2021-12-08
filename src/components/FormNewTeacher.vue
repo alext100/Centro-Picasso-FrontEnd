@@ -137,7 +137,7 @@
     <b-button
       :disabled="isDisabled"
       :class="isDisabled ? 'disabled create-form--submit-button' : 'create-form--submit-button'"
-      @click="handleCreate"
+      @click="$toast('Añadido'), handleCreate()"
       type="submit"
       pill
       >{{ isWrong ? "Incorrecto" : "Crearlo" }}</b-button

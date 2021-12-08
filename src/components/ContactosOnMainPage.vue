@@ -9,21 +9,22 @@
       style="border: 0"
       allowfullscreen="false"
       loading="lazy"
+      title="Google map with location"
     ></iframe>
 
     <div class="container mt-5">
       <b-card>
-        <b-form-group label-cols-lg="3" label="Nombre" label-for="input-default">
-          <b-form-input placeholder="Nombre" id="input-default"></b-form-input>
+        <b-form-group label-cols-lg="3" label="Nombre" label-for="input-name">
+          <b-form-input placeholder="Nombre" id="input-name"></b-form-input>
         </b-form-group>
-        <b-form-group label-cols-lg="3" label="Teléfono" label-for="input-default">
-          <b-form-input placeholder="Teléfono" id="input-default"></b-form-input>
+        <b-form-group label-cols-lg="3" label="Teléfono" label-for="input-phone">
+          <b-form-input placeholder="Teléfono" id="input-phone"></b-form-input>
         </b-form-group>
-        <b-form-group label-cols-lg="3" label="Email" label-for="input-default">
-          <b-form-input placeholder="Email" id="input-default"></b-form-input>
+        <b-form-group label-cols-lg="3" label="Email" label-for="input-email">
+          <b-form-input placeholder="Email" id="input-email"></b-form-input>
         </b-form-group>
-        <b-form-group label-cols-lg="3" label="Tema" label-for="input-default">
-          <b-form-input placeholder="Tema" id="input-default"></b-form-input>
+        <b-form-group label-cols-lg="3" label="Tema" label-for="input-tema">
+          <b-form-input placeholder="Tema" id="input-tema"></b-form-input>
         </b-form-group>
         <b-form-textarea size="lg" id="input-message" type="textarea" trim placeholder="Mensaje" rows="6" no-resize></b-form-textarea>
         <b-button class="send-button m-3" pill>Enviar</b-button>
