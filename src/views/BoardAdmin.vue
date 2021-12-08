@@ -13,7 +13,9 @@
       </li>
     </ul>
 
-    <b-button v-on:click="isHiddenFormToCreate = !isHiddenFormToCreate" pill class="b-card__button mb-5 w-100">Añadir nuevo profesor</b-button>
+    <b-button v-on:click="isHiddenFormToCreate = !isHiddenFormToCreate" pill class="b-card__button mb-5 w-100 add-new-teacher-button"
+      >Añadir nuevo profesor</b-button
+    >
     <form-new-teacher v-if="!isHiddenFormToCreate" />
 
     <h2>Precios</h2>
@@ -88,8 +90,12 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .container__list {
   list-style: none;
+}
+.add-new-teacher-button {
+  color: black;
+  font-weight: 500;
 }
 </style>
