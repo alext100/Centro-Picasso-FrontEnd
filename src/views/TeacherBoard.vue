@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>¡Hola, {{ currentUser.username }}!</h1>
+    <h1>¡Hola {{ currentUser.firstName }}!</h1>
     <b-card border-variant="light" class="m-4 porque-nosotros-card" style="min-width: 300px">
       <b-card-text>En esta página puedes formar grupos de tus alumnos. Y para cada grupo, agregue tareas o materiales de estudio.</b-card-text>
     </b-card>

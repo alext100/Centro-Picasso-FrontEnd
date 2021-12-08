@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>¡Hola, {{ currentUser.username }}!</h1>
+    <h1>¡Hola {{ currentUser.firstName }}!</h1>
     <p>
       Aquí puedes cambiar la información sobre los profesores y sus derechos de acceso. También puedes modificar los precios de los cursos que
       serán visibles para los visitantes del sitio en la página de Precios. Y también puedes crear un horario de lecciones que solo verán los
