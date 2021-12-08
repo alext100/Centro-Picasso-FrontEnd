@@ -174,7 +174,7 @@
       </tr>
 
       <tr>
-        <th scope="row">Para dos persona</th>
+        <th scope="row">Para dos personas</th>
         <td v-if="isHiddenP2Price">{{ personalPrice2 }} rub</td>
         <b-form-input
           v-if="!isHiddenP2Price"
@@ -201,7 +201,7 @@
       </tr>
 
       <tr>
-        <th scope="row">Para tres persona</th>
+        <th scope="row">Para tres personas</th>
         <td v-if="isHiddenP3Price">{{ personalPrice3 }} rub</td>
         <b-form-input
           v-if="!isHiddenP3Price"
@@ -229,7 +229,7 @@
       </tr>
 
       <tr>
-        <th scope="row">Para cuatro persona</th>
+        <th scope="row">Para cuatro personas</th>
         <td v-if="isHiddenP4Price">{{ personalPrice4 }} rub</td>
         <b-form-input
           v-if="!isHiddenP4Price"

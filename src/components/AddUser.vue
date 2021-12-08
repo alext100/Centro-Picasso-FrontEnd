@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h4>Añadir usuario</h4>
-    <ul class="list-group-item-success">
+    <ul class="list-group-item-success container__list--try">
       <li v-for="user in allUsers || []" :key="user.id" class="container__list">
         <b-card>
           <div class="mt-3">
@@ -9,7 +9,7 @@
               <b-card bg-variant="light" class="text-center">
                 <router-link :to="'/online-lesson/' + user.id">{{ user.firstname }} {{ user.lastname }}</router-link>
                 <b-card-text>{{ user.email }}</b-card-text>
-                <b-button @click="handleAddUserToGroup(user.id)"><em class="fas fa-user-plus"></em></b-button>
+                <b-button @click="handleAddUserToGroup(user.id), $toast('¡Añadido!')"><em class="fas fa-user-plus"></em></b-button>
               </b-card>
             </b-card-group>
           </div>
