@@ -6,7 +6,7 @@
           <b-form-group
             id="username"
             description="Tu username aquí, por favor"
-            label="alex1"
+            label="username"
             label-for="input-username"
             valid-feedback="¡Gracias!"
             :invalid-feedback="floatingInvalidFeedbackUsername"
@@ -26,7 +26,7 @@
           <b-form-group
             id="password"
             description="Tu contraseña aquí, por favor"
-            label="alex"
+            label="contraseña"
             label-for="input-password"
             valid-feedback="Thank you!"
             :invalid-feedback="floatingInvalidFeedbackPassword"
