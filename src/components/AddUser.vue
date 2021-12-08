@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <h4>Añadir usuario</h4>
-    <ul class="list-group-item-success container__list--try">
-      <li v-for="user in allUsers || []" :key="user.id" class="container__list">
+    <ul class="list-group-item-success">
+      <li v-for="user in allUsers || []" :key="user.id" class="container__list items-list">
         <b-card>
           <div class="mt-3">
             <b-card-group deck>
@@ -40,3 +40,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.items-list {
+  list-style: none;
+}
+</style>

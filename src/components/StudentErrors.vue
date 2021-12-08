@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <h2 class="mb-4">Los apuntes de {{ loadedOneUserById.firstname }}:</h2>
-    <ul class="list-group-item-secondary reverseorder">
-      <li v-for="error in currentStudentErrors || []" :key="error" class="container__list">
+    <h2 class="m-3">Los apuntes de {{ loadedOneUserById.firstname }}:</h2>
+    <ul class="list-group-item-success reverseorder">
+      <li v-for="error in currentStudentErrors || []" :key="error" class="container__list items-list">
         <b-card>
           <div class="mt-3">
             <b-card-group deck>
               <b-card bg-variant="light" :header="new Date(error.date).toLocaleString()" class="text-center">
                 <b-card-sub-title><strong>Tipo:</strong> {{ error.errorType }}</b-card-sub-title>
-                <b-card-text><strong>Entrada:</strong> {{ error.errorComment }}</b-card-text>
-                <b-card-text><strong>Comentario:</strong> {{ error.errorMessage }}</b-card-text>
+                <b-card-text><strong>Entrada: </strong>{{ error.errorMessage }}</b-card-text>
+                <b-card-text><strong>Comentario:</strong> {{ error.errorComment }}</b-card-text>
                 <b-button @click="handleDeleteError(error.id)"><em class="far fa-trash-alt"></em></b-button>
               </b-card>
             </b-card-group>
@@ -46,5 +46,9 @@ export default defineComponent({
 .reverseorder {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.items-list {
+  list-style: none;
 }
 </style>

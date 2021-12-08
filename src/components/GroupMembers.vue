@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <h2 class="mb-4">Miembros del grupo:</h2>
-    <ul class="list-group-item-secondary">
-      <li v-for="userFromGroup in loadedUsersFromGroup || []" :key="userFromGroup" class="container__list">
+    <ul class="list-group-item-success">
+      <li v-for="userFromGroup in loadedUsersFromGroup || []" :key="userFromGroup" class="container__list items-list">
         <b-card>
           <div class="mt-3">
             <b-card-group deck>
@@ -48,3 +48,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.items-list {
+  list-style: none;
+}
+</style>

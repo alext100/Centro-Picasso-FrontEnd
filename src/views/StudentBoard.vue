@@ -1,11 +1,15 @@
 <template>
-  <h1 class="m-3">¡Hola {{ currentUser.firstname }}! Estás en el grupo {{ currentGroup.groupname }}</h1>
-  <b-card>
-    <b-tabs active-nav-item-class="m-2 h-3 list-group-item-success" content-class="mt-3" justified>
-      <b-tab title="Apuntes" active><StudentErrorsVue /></b-tab>
-      <b-tab title="Mensajes"><GroupMessagesVue /></b-tab>
-    </b-tabs>
-  </b-card>
+  <div class="container">
+    <h1 class="m-3">¡Hola {{ currentUser.firstName }}! Estás en el grupo {{ currentGroup.groupname }}</h1>
+    <b-card-group>
+      <b-card>
+        <b-tabs active-nav-item-class="m-2 h-3 list-group-item-success" content-class="mt-3" justified>
+          <b-tab title="Apuntes" active><StudentErrorsVue /></b-tab>
+          <b-tab title="Mensajes"><GroupMessagesVue /></b-tab>
+        </b-tabs>
+      </b-card>
+    </b-card-group>
+  </div>
 </template>
 
 <script lang="ts">
