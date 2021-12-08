@@ -1,5 +1,5 @@
 <template>
-  <h1 class="m-3">¡Hola {{ currentUser.firstname }}! Estás en grupo {{ currentGroup.groupname }}</h1>
+  <h1 class="m-3">¡Hola {{ currentUser.firstname }}! Estás en el grupo {{ currentGroup.groupname }}</h1>
   <b-card>
     <b-tabs active-nav-item-class="m-2 h-3 list-group-item-success" content-class="mt-3" justified>
       <b-tab title="Apuntes" active><StudentErrorsVue /></b-tab>

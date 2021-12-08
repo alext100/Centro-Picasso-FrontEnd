@@ -55,21 +55,21 @@
         </tr>
 
         <tr>
-          <th scope="row">Para dos persona</th>
+          <th scope="row">Para dos personas</th>
           <td>{{ prices[6]?.price }} rub</td>
           <td>{{ prices[6]?.duration }}</td>
           <td></td>
         </tr>
 
         <tr>
-          <th scope="row">Para tres persona</th>
+          <th scope="row">Para tres personas</th>
           <td>{{ prices[7]?.price }} rub</td>
           <td>{{ prices[7]?.duration }}</td>
           <td></td>
         </tr>
 
         <tr>
-          <th scope="row">Para cuatro persona</th>
+          <th scope="row">Para cuatro personas</th>
           <td>{{ prices[8]?.price }} rub</td>
           <td>{{ prices[8]?.duration }}</td>
           <td></td>
