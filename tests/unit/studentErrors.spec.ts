@@ -25,7 +25,7 @@ describe("Given a studentErrors component ", () => {
           },
         },
       });
-      const htmlSubstyring = '<ul class="list-group-item-secondary reverseorder">';
+      const htmlSubstyring = '<ul class="list-group-item-success reverseorder">';
 
       expect(wrapper.html()).toContain(htmlSubstyring);
     });
