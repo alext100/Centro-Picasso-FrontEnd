@@ -6,13 +6,13 @@ import Blog from "../views/Blog.vue";
 import Courses from "../views/Courses.vue";
 import Prices from "../views/Prices.vue";
 import Login from "../views/Login.vue";
-import BoardAdmin from "../views/BoardAdmin.vue";
-import TeacherBoard from "../views/TeacherBoard.vue";
 import Inscribirse from "../views/Inscribirse.vue";
-import StudentBoard from "../views/StudentBoard.vue";
 import GroupPage from "../views/Group.vue";
-import OnlineLesson from "../components/OnlineLesson.vue";
 /* import protectedRoute from "./protectedRoute"; */
+const BoardAdmin = () => import("../views/BoardAdmin.vue");
+const OnlineLesson = () => import("../components/OnlineLesson.vue");
+const StudentBoard = () => import("../views/StudentBoard.vue");
+const TeacherBoard = () => import("../views/TeacherBoard.vue");
 
 const routes: Array<RouteRecordRaw> = [
   {

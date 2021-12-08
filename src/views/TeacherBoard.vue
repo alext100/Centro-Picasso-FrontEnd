@@ -7,7 +7,7 @@
     <div class="container">
       <h2>Mis grupos:</h2>
       <ul class="list-group-item-success">
-        <li v-for="group in userGroups || []" :key="group" class="container__list d-flex flex-column">
+        <li v-for="group in userGroups || []" :key="group" class="container__list d-flex flex-column items-list">
           <b-card>
             <div class="mt-3">
               <b-card-group deck>
@@ -39,7 +39,7 @@
     <div v-if="!isHiddenFormToCreate" class="container">
       <h2>Todos los grupos</h2>
       <ul class="list-group-item-success">
-        <li v-for="group in groups || []" :key="group" class="container__list d-flex flex-column">
+        <li v-for="group in groups || []" :key="group" class="container__list d-flex flex-column items-list">
           <b-card>
             <div class="mt-3">
               <b-card-group deck>
@@ -59,14 +59,6 @@
               </b-card-group>
             </div>
           </b-card>
-          <!--           <b-button @click="handleAddToMyGroups(group.id), $toast('Añadido a tus grupos')" pill class="b-card__button mb-5 w-25"
-            >Añadir a mis grupos</b-button
-          > -->
-
-          <!-- <p>{{ group.groupname }}</p> -->
-          <!--           <b-button @click="handleAddToMyGroups(group.id), $toast('Añadido a tus grupos')" pill class="b-card__button mb-5 w-25"
-            >Añadir a mis grupos</b-button
-          > -->
         </li>
       </ul>
     </div>
@@ -104,9 +96,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.container__list--try {
-  position: relative;
-}
 .b-card__button {
   min-width: fit-content;
 }
@@ -116,5 +105,9 @@ export default defineComponent({
   color: currentColor;
   border: none;
   width: fit-content;
+}
+
+.items-list {
+  list-style: none;
 }
 </style>

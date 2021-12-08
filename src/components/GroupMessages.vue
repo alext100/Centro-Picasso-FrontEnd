@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <h2 class="mb-4">Mensajes del grupo:</h2>
-    <ul class="list-group-item-secondary reverseorder">
-      <li v-for="message in currentGroup.messages || []" :key="message" class="container__list">
+    <ul class="list-group-item-success reverseorder">
+      <li v-for="message in currentGroup.messages || []" :key="message" class="container__list items-list">
         <b-card>
           <div class="mt-3">
             <b-card-group deck>
@@ -33,5 +33,8 @@ export default defineComponent({
 .reverseorder {
   display: flex;
   flex-direction: column-reverse;
+}
+.items-list {
+  list-style: none;
 }
 </style>

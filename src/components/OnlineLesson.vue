@@ -122,6 +122,8 @@ export default defineComponent({
           date: new Date(),
         };
         await this.addErrorToUser({ userId: this.$route.params.id, userError });
+        this.message = "";
+        this.errorComment = "";
       }
     },
   },
