@@ -1,11 +1,14 @@
 <template>
   <div class="container">
-    <h1>¡Hola {{ currentUser.firstName }}!</h1>
-    <p>
-      Aquí puedes cambiar la información sobre los profesores y sus derechos de acceso. También puedes modificar los precios de los cursos que
-      serán visibles para los visitantes del sitio en la página de Precios. Y también puedes crear un horario de lecciones que solo verán los
-      profesores.
-    </p>
+    <h1>¡Hola {{ currentUser?.firstname }}!</h1>
+    <b-card class="mb-1 card-description" border-variant="white">
+      <b-card-text>
+        Aquí puedes cambiar la información sobre los profesores y sus derechos de acceso. También puedes modificar los precios de los cursos que
+        serán visibles para los visitantes del sitio en la página de Precios. Y también puedes crear un horario de lecciones que solo verán los
+        profesores.
+      </b-card-text>
+    </b-card>
+
     <h2>Profesores</h2>
     <ul class="list-group-item-success">
       <li v-for="teacher in teachers || []" :key="teacher" class="container__list">
@@ -97,5 +100,10 @@ export default defineComponent({
 .add-new-teacher-button {
   color: black;
   font-weight: 500;
+}
+.card-description {
+  font-size: 20px;
+  font-family: "Tenor-sans", sans-serif;
+  text-align: justify;
 }
 </style>

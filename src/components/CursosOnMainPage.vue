@@ -1,7 +1,7 @@
 <template>
   <div class="align-items-center container d-flex flex-column">
     <h2>Cursos</h2>
-    <b-card-group class="ml-5">
+    <b-card-group class="ml-0">
       <b-card
         title="Cursos grupales"
         img-top
@@ -34,7 +34,7 @@
         ></b-card-img>
       </b-card>
     </b-card-group>
-    <b-card-group class="mr-5">
+    <b-card-group class="mr-0">
       <b-card
         title="Clubs"
         img-top

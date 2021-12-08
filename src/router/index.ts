@@ -8,11 +8,11 @@ import Prices from "../views/Prices.vue";
 import Login from "../views/Login.vue";
 import Inscribirse from "../views/Inscribirse.vue";
 import GroupPage from "../views/Group.vue";
+import TeacherBoard from "../views/TeacherBoard.vue";
 /* import protectedRoute from "./protectedRoute"; */
 const BoardAdmin = () => import("../views/BoardAdmin.vue");
 const OnlineLesson = () => import("../components/OnlineLesson.vue");
 const StudentBoard = () => import("../views/StudentBoard.vue");
-const TeacherBoard = () => import("../views/TeacherBoard.vue");
 
 const routes: Array<RouteRecordRaw> = [
   {

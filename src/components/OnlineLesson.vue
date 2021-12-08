@@ -1,10 +1,12 @@
 <template>
   <div class="container">
-    <p>
-      Durante la clase online, puedes tomar notas rápidas. Por ejemplo, una palabra o frase en la que el alumno cometió un error. O vocabulario
-      nuevo. O un error de pronunciación. Después de la lección, puedes editar las notas y después de presionar el botón confirmar, el estudiante
-      verá este informe en su cuenta personal.
-    </p>
+    <b-card class="mb-1 card-description" border-variant="white">
+      <b-card-text>
+        Durante la clase online, puedes tomar notas rápidas. Por ejemplo, una palabra o frase en la que el alumno cometió un error. O vocabulario
+        nuevo. O un error de pronunciación. Después de la lección, puedes editar las notas y después de presionar el botón confirmar, el
+        estudiante verá este informe en su cuenta personal.
+      </b-card-text>
+    </b-card>
 
     <div class="container-sm login-form d-flex flex-column mt-5">
       <b-card class="mb-1">
@@ -133,4 +135,10 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.card-description {
+  font-size: 20px;
+  font-family: "Tenor-sans", sans-serif;
+  text-align: justify;
+}
+</style>

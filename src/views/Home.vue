@@ -9,7 +9,7 @@
   <div class="container">
     <h2 class="d-flex justify-content-around m-4">Profesores</h2>
     <ul class="list-group-item-success">
-      <li v-for="teacher in teachers || []" :key="teacher" class="container__list">
+      <li v-for="teacher in teachers || []" :key="teacher" class="container__list items-list">
         <teacher-card :lastname="teacher.lastname" :image="teacher.image" :firstname="teacher.firstname" :userId="teacher.id" />
       </li>
     </ul>
@@ -60,6 +60,9 @@ button.home_button-more-info {
 button.moreinfo-button {
   background-color: #cc1810;
   font-size: 25px;
+}
+.items-list {
+  list-style: none;
 }
 @media screen and (max-width: 991px) {
   .home {

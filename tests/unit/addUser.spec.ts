@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { createStore } from "vuex";
-import GroupMembers from "@/components/GroupMembers.vue";
+import AddUser from "@/components/AddUser.vue";
 import router from "@/router";
 import state from "../mockedState";
 
@@ -15,29 +15,13 @@ describe("Given a GroupMembers component ", () => {
             messages: [{}],
             id: "",
           };
-          state.loadedUsersFromGroup = [
-            {
-              firstname: "",
-              id: "",
-              username: "",
-              password: "",
-              email: "",
-              lastname: "",
-              adminAccess: false,
-              professorAccess: false,
-              studentAccess: false,
-              groups: [],
-              studentErrors: [],
-              image: "",
-            },
-          ];
-
+          state.loadedUsersFromGroup = [];
           return state;
         },
         actions: { getGroupById: jest.fn(), getUserById: jest.fn(), deleteLoadedUsers: jest.fn() },
       });
 
-      const wrapper = mount(GroupMembers, {
+      const wrapper = mount(AddUser, {
         global: {
           plugins: [router, store],
           mocks: {
@@ -53,7 +37,8 @@ describe("Given a GroupMembers component ", () => {
         },
         stubs: ["router-link", "router-view"],
       });
-      const htmlSubstyring = '<h2 class="mb-4">Miembros del grupo:</h2>';
+      const htmlSubstyring =
+        "<p>En esta página puedes formar grupos de tus alumnos. Y para cada grupo y puede agregue tareas o materiales de estudio.</p>";
 
       expect(wrapper.html()).toContain(htmlSubstyring);
     });

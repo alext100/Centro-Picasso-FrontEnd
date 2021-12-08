@@ -27,8 +27,7 @@ describe("Given a TeacherBoard component", () => {
           },
         },
       });
-      const htmlSubstyring =
-        "<p>En esta página puedes formar grupos de tus alumnos. Y para cada grupo, agregue tareas o materiales de estudio.</p>";
+      const htmlSubstyring = "<h2>Mis grupos:</h2>";
 
       expect(wrapper.html()).toContain(htmlSubstyring);
     });
