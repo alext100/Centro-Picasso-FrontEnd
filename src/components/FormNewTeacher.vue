@@ -241,6 +241,12 @@ export default defineComponent({
         };
         try {
           await this.registerUser(userData);
+          this.username = "";
+          this.password = "";
+          this.firstname = "";
+          this.lastname = "";
+          this.email = "";
+          this.image = "";
           this.isWrong = false;
         } catch (error) {
           this.isWrong = true;

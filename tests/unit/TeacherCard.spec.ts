@@ -53,7 +53,7 @@ describe("Given a TeacherCard component", () => {
 
       const deleteButton = await wrapper.get('[data-test="delete"]');
 
-      /*  await deleteButton.trigger("click"); */
+      await deleteButton.trigger("click");
       await handleDelete();
 
       await expect(handleDelete).toHaveBeenCalled();

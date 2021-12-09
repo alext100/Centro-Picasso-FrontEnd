@@ -1,5 +1,8 @@
 <template>
-  <nav id="nav" class="header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light p-3 sticky-md-top">
+  <nav
+    id="nav"
+    class="ml-lg-n4 header d-flex flex-column justify-content-between navbar navbar-expand-lg navbar-light bg-light p-3 sticky-md-top"
+  >
     <div class="header_top offcanvas-body">
       <div class="align-items-md-center offcanvas-body mr-5">
         <img class="header_big-image align-self-md-start ml-2 mr-5" src="../../public/Centro-Picasso-200x91.png" alt="logo" />
@@ -42,7 +45,7 @@
             <a class="nav-link m-2" href="https://www.instagram.com/centropicassorusia/">Blog</a>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link m-2" to="/">Contactos</router-link>
+            <router-link class="nav-link m-2" to="/contacts">Contactos</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link m-2" to="/inscribirse">Inscribirse</router-link>
