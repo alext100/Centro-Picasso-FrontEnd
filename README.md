@@ -42,9 +42,12 @@ Pero mi objetivo era hacer una web app para profesores de la escuela, administra
 ## Coverage 
 
 - El 14 de diciembre, el covage es 77%. Los componentes y funciones no testeados voy a testear en la próxima versión de la aplicación.
-
-![screenshot](http://raw.githubusercontent.com/SkylabCoders/Aleksander_Front-Final-Project-202109/blob/main/img/2021-12-14_coverage.png)
+- 
+![2021-12-14_coverage](https://user-images.githubusercontent.com/83639312/146032996-15addfe3-7637-4386-ac40-de65c7579b9c.png)
 
 ## Video con un ejemplo de funcionalidad de la aplicación para tres roles de usuario
-![screenshot](http://raw.githubusercontent.com/SkylabCoders/Aleksander_Front-Final-Project-202109/blob/main/img/CentroPicasso.mov)
+
+https://user-images.githubusercontent.com/83639312/146033062-ec23f5c5-39ce-4637-aa2e-30a113d018d0.mov
+
+
 
