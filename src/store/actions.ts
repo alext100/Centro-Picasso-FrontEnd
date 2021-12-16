@@ -33,19 +33,8 @@ const actions: any = {
     localStorage.setItem(
       "userData",
       JSON.stringify({
-        id: data.id,
         username: data.username,
-        email: data.email,
         password: data.password,
-        firstName: data.firstname,
-        lastName: data.lastname,
-        token: data.token,
-        refreshToken: data.refreshToken,
-        groups: data.groups,
-        studentErrors: data.studentErrors,
-        adminAccess: data.adminAccess,
-        professorAccess: data.professorAccess,
-        studentAccess: data.studentAccess,
       })
     );
     commit("loginUser", data);
