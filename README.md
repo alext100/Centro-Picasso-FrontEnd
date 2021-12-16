@@ -11,6 +11,10 @@ npm install
 npm run serve
 ```
 
+## Video con un ejemplo de funcionalidad de la aplicación para tres roles de usuario
+
+https://user-images.githubusercontent.com/83639312/146033062-ec23f5c5-39ce-4637-aa2e-30a113d018d0.mov
+
 ## Descripción
 
 Es un sitio web de una escuela de lengua española en San Petersburgo. A primera vista es un sitio regular, con una pagina principal, una pagina con los precios etc.
@@ -29,7 +33,7 @@ Pero mi objetivo era hacer una web app para profesores de la escuela, administra
   - Al entrar al cualquier grupo profesor puede **escribir** un mensaje p.e. con los deberes que pueden ver todos los alumnos, miembros de este grupo.
   - En otra pestaña el puede **ver** la lista con todos los miembros del grupo.
   - En la tercera pestaña puede **ver** la lista de todos los alumnos y **añadir** nuevos miembros a este grupo.
-- Con cada alumno profesor puede tener clase online y puede **tomar notas rápidas** con errores del alumno. Para esto el profesor puede elegir un alumno y va a entrar a la pagina Online-lesson. Cada apunte son dos inpunts, con el error del alumno y con la version correcta. Y tambien el profesor puede **marcar** tipo del error (4 botones: *Nueva palabra, Fallo, Pronunciación, Otro*).
+- Con cada alumno profesor puede tener clase online y puede **tomar notas rápidas** con errores del alumno. Para esto el profesor puede elegir un alumno y va a entrar a la pagina Online-lesson. Cada apunte son dos inpunts, con el error del alumno y con la version correcta. Y tambien el profesor puede **marcar** tipo del error (4 botones: _Nueva palabra, Fallo, Pronunciación, Otro_).
 - En la siguiente version de la app va a ver el horario creado por administrador.
 
 ### Alumno
@@ -39,15 +43,7 @@ Pero mi objetivo era hacer una web app para profesores de la escuela, administra
   - Mensajes: Los mensajes del grupo, p.e. con los deberes.
 - En la siguiente version de la app los apuntes van a aparecer divididas a clases(fechas) y el alumno podrá marcarles como revisados.
 
-## Coverage 
+## Coverage
 
-- El 14 de diciembre, el covage es 77%. Los componentes y funciones no testeados voy a testear en la próxima versión de la aplicación.
-- 
-![2021-12-14_coverage](https://user-images.githubusercontent.com/83639312/146032996-15addfe3-7637-4386-ac40-de65c7579b9c.png)
-
-## Video con un ejemplo de funcionalidad de la aplicación para tres roles de usuario
-
-https://user-images.githubusercontent.com/83639312/146033062-ec23f5c5-39ce-4637-aa2e-30a113d018d0.mov
-
-
-
+- El 14 de diciembre, el coverage es 77%. Los componentes y funciones no testeados voy a testear en la próxima versión de la aplicación.
+- ![2021-12-14_coverage](https://user-images.githubusercontent.com/83639312/146032996-15addfe3-7637-4386-ac40-de65c7579b9c.png)

@@ -5,7 +5,9 @@
   >
     <div class="header_top offcanvas-body">
       <div class="align-items-md-center offcanvas-body mr-5">
-        <img class="header_big-image align-self-md-start ml-2 mr-5" src="../../public/Centro-Picasso-200x91.png" alt="logo" />
+        <router-link to="/">
+          <img class="header_big-image align-self-md-start ml-2 mr-5" src="../../public/Centro-Picasso-200x91.png" alt="logo" />
+        </router-link>
         <p class="header_text-school align-self-md-center">ESCUELA DE LENGUA ESPAÑOLA</p>
       </div>
       <div class="align-items-md-center d-flex mb-3 ml-5">
@@ -15,7 +17,9 @@
     </div>
     <div class="header_rule table-bordered"></div>
     <div class="header_bottom">
-      <img class="header_small-image" src="../../public/Centro-Picasso-120x55.png" alt="logo" />
+      <router-link to="/">
+        <img class="header_small-image" src="../../public/Centro-Picasso-120x55.png" alt="logo" />
+      </router-link>
       <button
         class="header_toggle-button navbar-toggler"
         type="button"
@@ -27,7 +31,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="header_navbar-collapse align-self-md-end collapse navbar-collapse" id="navbarNav">
+      <div class="header_navbar-collapse align-self-md-end collapse navbar-collapse badge-light" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-end bg-body bg-transparent">
           <li class="nav-item">
             <router-link class="nav-link m-2" to="/">Inicio</router-link>
@@ -135,7 +139,7 @@ export default defineComponent({
     margin-right: 8rem;
   }
   .header_toggle-button {
-    margin-left: 8rem;
+    margin-left: 10rem;
   }
   @media screen and (min-width: 992px) {
     .header_small-image {
@@ -143,15 +147,19 @@ export default defineComponent({
     }
   }
 }
-.toast-header {
-  background-color: inherit !important;
-}
+
 @media screen and (max-width: 991px) {
   .header_top {
     display: none;
   }
   .header_rule {
     display: none;
+  }
+
+  @media screen and (max-width: 515px) {
+    .header_toggle-button {
+      margin-left: 4rem !important;
+    }
   }
 }
 </style>

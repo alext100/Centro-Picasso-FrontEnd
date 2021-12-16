@@ -1,16 +1,17 @@
 <template>
   <div class="align-items-center container d-flex flex-column">
     <h2 class="m-4">Contactos</h2>
-
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1999.2862811147872!2d30.342809316210914!3d59.927391669967776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43933d4cf79bdce1%3A0xd4a24c121240d17a!2z0KbQtdC90YLRgCDQuNGB0L_QsNC90YHQutC-0LPQviDRj9C30YvQutCwIENlbnRybyBQaWNhc3Nv!5e0!3m2!1sru!2ses!4v1638910699219!5m2!1sru!2ses"
-      width="600"
-      height="450"
-      style="border: 0"
-      allowfullscreen="false"
-      loading="lazy"
-      title="Google map with location"
-    ></iframe>
+    <div class="contactos__map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1999.2862811147872!2d30.342809316210914!3d59.927391669967776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43933d4cf79bdce1%3A0xd4a24c121240d17a!2z0KbQtdC90YLRgCDQuNGB0L_QsNC90YHQutC-0LPQviDRj9C30YvQutCwIENlbnRybyBQaWNhc3Nv!5e0!3m2!1sru!2ses!4v1638910699219!5m2!1sru!2ses"
+        width="500"
+        height="500"
+        style="border: 0"
+        allowfullscreen="false"
+        loading="lazy"
+        title="Google map with location"
+      ></iframe>
+    </div>
 
     <div class="container mt-5">
       <b-card>
