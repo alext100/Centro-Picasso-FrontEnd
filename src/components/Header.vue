@@ -68,6 +68,9 @@
           <li v-if="isProfessor" class="nav-item">
             <router-link class="nav-link m-2" to="/teacher">{{ "Mi plataforma" }}</router-link>
           </li>
+          <li v-if="isStudent" class="nav-item">
+            <router-link class="nav-link m-2" :to="{ name: 'StudentBoard', params: { id: currentUser.id } }">{{ "Mi plataforma" }}</router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -76,15 +79,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapActions, mapGetters, mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default defineComponent({
   name: "Header",
   props: {},
-  computed: { ...mapState(["currentUser", "isUserAuthenticated", "isAdmin", "isProfessor"]) },
+  computed: { ...mapState(["currentUser", "isUserAuthenticated", "isAdmin", "isProfessor", "isStudent"]) },
   methods: {
     ...mapActions(["getUserFromLocalStorage", "deleteDataFromLocalStorage"]),
-    ...mapGetters(["getCurrentUser"]),
     handleLogout() {
       this.deleteDataFromLocalStorage();
       this.$router.push("/");
