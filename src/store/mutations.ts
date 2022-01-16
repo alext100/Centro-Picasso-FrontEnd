@@ -19,6 +19,28 @@ const mutations = {
     state.isAdmin = false;
     state.isProfessor = false;
     state.isStudent = false;
+    state.currentUser = {
+      user: {
+        id: "",
+        username: "",
+        password: "",
+        email: "",
+        firstname: "",
+        lastname: "",
+        adminAccess: false,
+        professorAccess: false,
+        studentAccess: false,
+        groups: [],
+        studentErrors: [],
+        image: "",
+      },
+      adminAccess: false,
+      professorAccess: false,
+      studentAccess: false,
+      id: "",
+      token: "",
+      refreshToken: "",
+    };
   },
 
   userIsAdmin(state: State) {
