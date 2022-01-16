@@ -9,7 +9,8 @@ import Login from "../views/Login.vue";
 import Inscribirse from "../views/Inscribirse.vue";
 import GroupPage from "../views/Group.vue";
 import TeacherBoard from "../views/TeacherBoard.vue";
-/* import protectedRoute from "./protectedRoute"; */
+import { adminProtectedRoute, teacherProtectedRoute, studentProtectedRoute } from "./protectedRoute";
+
 const BoardAdmin = () => import("../views/BoardAdmin.vue");
 const OnlineLesson = () => import("../components/OnlineLesson.vue");
 const StudentBoard = () => import("../views/StudentBoard.vue");
@@ -59,17 +60,19 @@ const routes: Array<RouteRecordRaw> = [
     path: "/admin",
     name: "Admin",
     component: BoardAdmin,
-    /* beforeEnter: protectedRoute, */
+    beforeEnter: adminProtectedRoute,
   },
   {
     path: "/teacher",
     name: "TeacherBoard",
     component: TeacherBoard,
+    beforeEnter: teacherProtectedRoute,
   },
   {
     path: "/student/:id",
     name: "StudentBoard",
     component: StudentBoard,
+    beforeEnter: studentProtectedRoute,
   },
   {
     path: "/group/:id",
