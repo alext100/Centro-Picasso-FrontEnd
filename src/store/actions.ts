@@ -35,6 +35,13 @@ const actions: any = {
       JSON.stringify({
         username: data.username,
         password: data.password,
+        token: data.token,
+        firstname: data.firstname,
+        adminAccess: data.adminAccess,
+        professorAccess: data.professorAccess,
+        studentAccess: data.studentAccess,
+        groups: data.groups,
+        studentErrors: data.studentErrors,
       })
     );
     commit("loginUser", data);
