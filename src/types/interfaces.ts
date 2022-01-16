@@ -27,6 +27,9 @@ interface UserWithToken {
     studentErrors: Array<string>;
     image: string;
   };
+  adminAccess: boolean;
+  professorAccess: boolean;
+  studentAccess: boolean;
   id: string;
   token: string;
   refreshToken: string;
