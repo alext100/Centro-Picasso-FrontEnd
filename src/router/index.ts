@@ -78,11 +78,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/group/:id",
     name: "GroupPage",
     component: GroupPage,
+    beforeEnter: teacherProtectedRoute,
   },
   {
     path: "/online-lesson/:id",
     name: "OnlineLesson",
     component: OnlineLesson,
+    beforeEnter: teacherProtectedRoute,
   },
 ];
 
