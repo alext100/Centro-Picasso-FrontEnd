@@ -1,6 +1,7 @@
+import { NavigationGuard } from "vue-router";
 import state from "@/store/state";
 
-const adminProtectedRoute = (to: any, from: any, next: any) => {
+const adminProtectedRoute: NavigationGuard = (to, from, next) => {
   if (state.currentUser.adminAccess === true) {
     next();
   } else {
@@ -8,7 +9,7 @@ const adminProtectedRoute = (to: any, from: any, next: any) => {
   }
 };
 
-const teacherProtectedRoute = (to: any, from: any, next: any) => {
+const teacherProtectedRoute: NavigationGuard = (to, from, next) => {
   if (state.currentUser.professorAccess === true) {
     next();
   } else {
@@ -16,7 +17,7 @@ const teacherProtectedRoute = (to: any, from: any, next: any) => {
   }
 };
 
-const studentProtectedRoute = (to: any, from: any, next: any) => {
+const studentProtectedRoute: NavigationGuard = (to, from, next) => {
   if (state.currentUser.studentAccess === true) {
     next();
   } else {
