@@ -62,13 +62,13 @@
               ><button class="logout-button" @click="handleLogout()" data-test="logout">Logout</button></router-link
             >
           </li>
-          <li v-if="isAdmin" class="nav-item">
+          <li v-if="currentUser.adminAccess" class="nav-item">
             <router-link class="nav-link m-2" to="/admin">{{ "Admin" }}</router-link>
           </li>
-          <li v-if="isProfessor" class="nav-item">
+          <li v-if="currentUser.professorAccess" class="nav-item">
             <router-link class="nav-link m-2" to="/teacher">{{ "Mi plataforma" }}</router-link>
           </li>
-          <li v-if="isStudent" class="nav-item">
+          <li v-if="currentUser.studentAccess" class="nav-item">
             <router-link class="nav-link m-2" :to="{ name: 'StudentBoard', params: { id: currentUser.id } }">{{ "Mi plataforma" }}</router-link>
           </li>
         </ul>
