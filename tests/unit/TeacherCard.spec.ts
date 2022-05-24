@@ -1,62 +1,54 @@
-import { mount } from "@vue/test-utils";
+import { enableAutoUnmount, mount } from "@vue/test-utils";
+import BootstrapVue3 from "bootstrap-vue-3";
+import { createRouterMock, injectRouterMock } from "vue-router-mock";
 import { createStore } from "vuex";
 import TeacherCard from "@/components/TeacherCard.vue";
-import state from "@/store/state";
-import router from "@/router";
+import state from "../mockedState";
+
+const store = createStore({
+  state() {
+    return state;
+  },
+});
+
+const wrapperOptions = {
+  global: {
+    plugins: [store, BootstrapVue3],
+  },
+  methods: { handleDelete: jest.fn() },
+  actions: { deleteTeacher: jest.fn() },
+};
+
+const router = createRouterMock({});
+beforeEach(() => {
+  injectRouterMock(router);
+});
+enableAutoUnmount(afterEach);
 
 describe("Given a TeacherCard component", () => {
-  const store = createStore({
-    state() {
+  describe("When it rendered with received props with a first name and a last name", () => {
+    test("Then it should show teachers first name, last name and a button text", async () => {
+      const wrapper = mount(TeacherCard, wrapperOptions);
       state.isAdmin = true;
-      return state;
-    },
-    actions: { deleteTeacher: jest.fn(), this: jest.fn(), handleDelete: jest.fn() },
-  });
+      const cardText = `Pablo Lopez`;
 
-  const wrapper = mount(TeacherCard, {
-    props: { firstname: "asfe", lastname: "asdf", image: "asdf", userId: "asdf" },
-    global: {
-      plugins: [router, store],
-      mocks: {
-        methods: {},
-        $route: {
-          params: {
-            id: "123455",
-          },
-        },
-        $store: {
-          state,
-        },
-      },
-    },
-    dispatch: jest.fn(),
-    commit: jest.fn(),
-    handleDelete: jest.fn(),
-    deleteTeacher: jest.fn(),
-    stubs: ["router-link", "router-view"],
-  });
-  describe("When it received props with a first name and last name", () => {
-    describe("When it rendered", () => {
-      test("Then it should show teachers first name, last name and a button text", async () => {
-        const cardText = `Pablo LopezBorrar`;
+      await wrapper.setProps({ firstname: "Pablo", lastname: "Lopez" });
 
-        await wrapper.setProps({ firstname: "Pablo", lastname: "Lopez" });
-
-        expect(wrapper.text()).toBe(cardText);
-      });
+      expect(wrapper.text()).toContain(cardText);
     });
   });
+});
 
-  describe("When a user click on the 'Borrar' button", () => {
-    test("Then it should invoke handleDelete with userID", async () => {
-      const handleDelete = jest.fn();
+describe("When a user click on the 'Borrar' button", () => {
+  test("Then it should invoke handleDelete with userID", async () => {
+    const wrapper = mount(TeacherCard, wrapperOptions);
+    const spyDelete = jest.spyOn(wrapper.vm, "handleDelete");
+    const deleteButton = wrapper.get('[data-test="delete"]');
+    state.isAdmin = true;
 
-      const deleteButton = await wrapper.get('[data-test="delete"]');
+    await wrapper.setProps({ userId: "1q2w3e4r" });
+    await deleteButton.trigger("click");
 
-      await deleteButton.trigger("click");
-      await handleDelete();
-
-      await expect(handleDelete).toHaveBeenCalled();
-    });
+    expect(spyDelete).toHaveBeenCalledWith("1q2w3e4r");
   });
 });

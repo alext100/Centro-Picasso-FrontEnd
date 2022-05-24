@@ -3,7 +3,7 @@ import { State } from "@/types/interfaces";
 const mockedState = {
   user: {
     id: "",
-    username: "",
+    username: "Pablo",
     password: "",
     email: "",
     firstname: "",
@@ -22,7 +22,20 @@ const mockedState = {
   isAdmin: false,
   isProfessor: false,
   isStudent: false,
-  currentUser: localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData") || "") : "",
+  currentUser: {
+    id: "1234567",
+    username: "Pablo",
+    password: "",
+    email: "pablo@gmail.com",
+    firstname: "Pablo",
+    lastname: "Lopez",
+    adminAccess: false,
+    professorAccess: true,
+    studentAccess: false,
+    groups: [],
+    studentErrors: [],
+    image: "",
+  },
   // eslint-disable-next-line no-unneeded-ternary
   isUserAuthenticated: localStorage.getItem("userData") ? true : false,
   prices: [],
