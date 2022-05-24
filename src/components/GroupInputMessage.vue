@@ -22,9 +22,11 @@
               placeholder="Mensaje"
               rows="6"
               no-resize
-            ></b-form-textarea>
+            >
+            </b-form-textarea>
           </b-form-group>
         </div>
+        <CKEditorVue v-model="editorData" />
       </b-form>
     </b-card>
     <b-button class="input-form--submit-button mb-3 mt-1" @click="handleAddMessage" type="submit" pill>Enviar</b-button>
@@ -32,8 +34,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { mapActions, mapState } from "vuex";
+import CKEditorVue from "@/components/CKEditor.vue";
 import state from "@/store/state";
 
 export default defineComponent({
@@ -52,6 +55,7 @@ export default defineComponent({
   },
 
   name: "GroupInputMessage",
+  components: { CKEditorVue },
   methods: {
     ...mapActions(["updateGroup"]),
     ...mapState(["currentGroup"]),
@@ -67,6 +71,11 @@ export default defineComponent({
       }
       this.message = "";
     },
+  },
+  data() {
+    return {
+      editorData: "",
+    };
   },
 });
 </script>
