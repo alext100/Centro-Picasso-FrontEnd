@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import CKEditor from "@ckeditor/ckeditor5-vue";
 import BootstrapVue3 from "bootstrap-vue-3";
 import DKToast from "vue-dk-toast";
 import App from "./App.vue";
@@ -25,4 +26,5 @@ app.use(DKToast, {
 });
 app.use(store);
 app.use(router);
+app.use(CKEditor);
 app.mount("#app");
